@@ -2,17 +2,16 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { site } from "@/config/site";
 import { navigation } from "@/config/navigation";
+import Image from "next/image";
 
 export function Footer() {
   return (
     <footer className="border-t border-stone-200 bg-stone-950 text-stone-400 py-16 md:py-24">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          <div className="md:col-span-2 flex flex-col gap-6">
-            <Link href="/" className="inline-block">
-              <span className="font-serif text-2xl font-medium tracking-tight text-stone-50">
-                {site.name}
-              </span>
+          <div className="flex flex-col gap-6">
+            <Link href="/">
+              <Image src="/brand/logo-light.svg" alt="Meridian Group Logo" width={140} height={24} className="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
             <p className="text-stone-400 max-w-sm leading-relaxed">
               {site.description}

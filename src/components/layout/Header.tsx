@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { navigation } from "@/config/navigation";
-import { site } from "@/config/site";
+import Image from "next/image";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-stone-50/80 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
         <div className="flex gap-6 md:gap-10">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="font-serif text-xl font-medium tracking-tight">
-              {site.name}
-            </span>
+          <Link href="/" className="flex items-center gap-2 z-50 relative">
+            <Image src="/brand/logo.svg" alt="Meridian Group Logo" width={140} height={24} priority className="h-6 w-auto" />
           </Link>
         </div>
         <nav className="hidden md:flex gap-8">

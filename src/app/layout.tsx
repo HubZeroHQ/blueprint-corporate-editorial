@@ -2,12 +2,23 @@ import { Inter, Playfair_Display } from "next/font/google";
 
 import "./globals.css";
 
-import { metadata } from "@/config/metadata";
+import { metadata as siteMetadata } from "@/config/metadata";
 import { AppProvider } from "@/providers/AppProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-export { metadata };
+export const metadata = {
+  ...siteMetadata,
+  icons: {
+    icon: [
+      { url: "/brand/favicon.ico" },
+      { url: "/brand/favicon.svg", type: "image/svg+xml" }
+    ],
+    apple: [
+      { url: "/brand/apple-touch-icon.png" }
+    ]
+  }
+};
 
 const inter = Inter({
   subsets: ["latin"],
