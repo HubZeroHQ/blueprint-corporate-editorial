@@ -13,7 +13,8 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const isDarkHero = ["/about", "/industries", "/careers"].includes(pathname);
-  const isDarkTheme = isDarkHero && !scrolled;
+  const isDarkTheme = isDarkHero && !scrolled && !mobileMenuOpen;
+  const hasPillBackground = scrolled && !mobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,8 +41,8 @@ export function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl px-6 h-16 rounded-full transition-all duration-500 ease-out ${
-          scrolled
+        className={`relative z-50 pointer-events-auto flex items-center justify-between w-full max-w-5xl px-6 h-16 rounded-full transition-all duration-500 ease-out ${
+          hasPillBackground
             ? "bg-stone-50/90 backdrop-blur-xl border border-stone-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
             : "bg-transparent border border-transparent shadow-none"
         }`}
@@ -93,7 +94,7 @@ export function Header() {
             Get in touch
           </Link>
           <button 
-            className={`md:hidden p-2 z-50 relative transition-colors ${mobileMenuOpen ? "text-stone-900" : (isDarkTheme ? "text-stone-50" : "text-stone-900")}`}
+            className={`md:hidden p-2 z-50 relative transition-colors ${isDarkTheme ? "text-stone-50" : "text-stone-900"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
           >
