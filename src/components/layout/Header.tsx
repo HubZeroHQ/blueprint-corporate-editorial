@@ -1,36 +1,87 @@
+"use client";
+
 import Link from "next/link";
-import { Container } from "./Container";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { navigation } from "@/config/navigation";
 import Image from "next/image";
 
 export function Header() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  const isDarkHero = ["/about", "/industries", "/careers"].includes(pathname);
+  const isDarkTheme = isDarkHero && !scrolled;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-stone-50/80 backdrop-blur-md">
-      <Container className="flex h-20 items-center justify-between">
-        <div className="flex gap-6 md:gap-10">
-          <Link href="/" className="flex items-center gap-2 z-50 relative">
-            <Image src="/brand/logo.svg" alt="Meridian Group Logo" width={140} height={24} priority className="h-6 w-auto" />
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-4 pt-6 pb-4 pointer-events-none">
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl px-6 h-16 rounded-full transition-all duration-500 ease-out ${
+          scrolled
+            ? "bg-stone-50/90 backdrop-blur-xl border border-stone-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            : "bg-transparent border border-transparent shadow-none"
+        }`}
+      >
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center gap-2 z-50 relative group">
+            <Image 
+              src={isDarkTheme ? "/brand/logo-light.svg" : "/brand/logo.svg"} 
+              alt="Meridian Group Logo" 
+              width={140} 
+              height={24} 
+              priority 
+              className="h-6 w-auto transition-all duration-300 group-hover:opacity-70" 
+            />
           </Link>
         </div>
-        <nav className="hidden md:flex gap-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-stone-600 transition-colors hover:text-stone-900"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <nav className="hidden md:flex items-center gap-8">
+            {navigation.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`relative text-sm font-medium transition-colors duration-300 px-1 py-2 ${
+                    isDarkTheme ? "text-stone-300 hover:text-stone-50" : "text-stone-600 hover:text-stone-900"
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-nav"
+                      className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isDarkTheme ? "bg-stone-50" : "bg-stone-900"}`}
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="hidden md:inline-flex h-10 items-center justify-center bg-stone-900 px-6 text-sm font-medium text-stone-50 transition-colors hover:bg-stone-800"
+            className={`hidden md:inline-flex h-10 items-center justify-center px-6 text-sm font-medium transition-colors rounded-full ${
+              isDarkTheme 
+                ? "bg-stone-50 text-stone-900 hover:bg-stone-200" 
+                : "bg-stone-900 text-stone-50 hover:bg-stone-800"
+            }`}
           >
             Get in touch
           </Link>
-          <button className="md:hidden p-2 text-stone-900">
+          <button className={`md:hidden p-2 ${isDarkTheme ? "text-stone-50" : "text-stone-900"}`}>
             <svg
               width="24"
               height="24"
@@ -48,7 +99,7 @@ export function Header() {
             <span className="sr-only">Toggle Menu</span>
           </button>
         </div>
-      </Container>
+      </motion.div>
     </header>
   );
 }

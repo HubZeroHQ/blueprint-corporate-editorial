@@ -23,7 +23,7 @@ export default function ContactPage() {
               </Typography>
               
               <div className="mt-8 flex flex-col gap-8">
-                <div className="relative w-full aspect-[16/9] bg-stone-200 mb-8">
+                <div className="relative w-full aspect-[16/9] bg-stone-200 mb-8 rounded-2xl overflow-hidden shadow-sm">
                   <Image src="/images/placeholders/contact.jpg" alt="Meridian Group Headquarters" fill className="object-cover" />
                 </div>
                 <div>
@@ -45,23 +45,23 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-stone-50 p-8 md:p-12 border border-stone-200">
+            <div className="bg-stone-50 p-8 md:p-12 border border-stone-200 rounded-3xl shadow-sm">
               <form className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-medium">Name</label>
-                  <input type="text" id="name" className="h-12 border border-stone-300 bg-white px-4 focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent" required />
+                  <label htmlFor="name" className="text-sm font-medium px-1">Name</label>
+                  <input type="text" id="name" className="h-12 border border-stone-300 bg-white px-5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" required />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-medium">Email</label>
-                  <input type="email" id="email" className="h-12 border border-stone-300 bg-white px-4 focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent" required />
+                  <label htmlFor="email" className="text-sm font-medium px-1">Email</label>
+                  <input type="email" id="email" className="h-12 border border-stone-300 bg-white px-5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" required />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="company" className="text-sm font-medium">Company</label>
-                  <input type="text" id="company" className="h-12 border border-stone-300 bg-white px-4 focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent" />
+                  <label htmlFor="company" className="text-sm font-medium px-1">Company</label>
+                  <input type="text" id="company" className="h-12 border border-stone-300 bg-white px-5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <textarea id="message" rows={5} className="border border-stone-300 bg-white p-4 focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-transparent" required></textarea>
+                  <label htmlFor="message" className="text-sm font-medium px-1">Message</label>
+                  <textarea id="message" rows={5} className="border border-stone-300 bg-white p-5 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" required></textarea>
                 </div>
                 <Button type="submit" size="lg" className="mt-4 w-full sm:w-auto self-start">Send Message</Button>
               </form>

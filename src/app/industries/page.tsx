@@ -40,7 +40,7 @@ export default function IndustriesPage() {
               We understand the regulatory, scaling, and architectural constraints unique to complex industries.
             </Typography>
           </div>
-          <div className="relative w-full aspect-[21/9] bg-stone-800">
+          <div className="relative w-full aspect-[21/9] bg-stone-800 rounded-2xl overflow-hidden shadow-sm">
             <Image src="/images/placeholders/industries.jpg" alt="Industries" fill className="object-cover opacity-80" priority />
           </div>
         </Container>

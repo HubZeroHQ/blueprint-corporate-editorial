@@ -42,7 +42,7 @@ export default function CareersPage() {
               We are always looking for disciplined, thoughtful practitioners who value craftsmanship and long-term thinking.
             </Typography>
           </div>
-          <div className="relative w-full aspect-[21/9] bg-stone-800">
+          <div className="relative w-full aspect-[21/9] bg-stone-800 rounded-2xl overflow-hidden shadow-sm">
             <Image src="/images/placeholders/careers.jpg" alt="Careers at Meridian Group" fill className="object-cover opacity-80" priority />
           </div>
         </Container>

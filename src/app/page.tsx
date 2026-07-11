@@ -1,14 +1,15 @@
 import { Page, Section, Container } from "@/components/layout";
-import { Typography, Button, Card, CardImage, CardHeader, CardTitle } from "@/components/ui";
+import { Typography, Button, Card, CardImage, CardHeader, CardTitle, Reveal } from "@/components/ui";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <Page>
       {/* Hero Section */}
-      <Section className="py-24 md:py-32 lg:py-40">
+      <Section className="py-24 md:py-32 lg:py-40 mt-16">
         <Container>
-          <div className="max-w-4xl flex flex-col gap-8">
+          <Reveal>
+            <div className="max-w-4xl flex flex-col gap-8">
             <Typography variant="caption">Meridian Group</Typography>
             <Typography variant="h1">
               Building clarity from complexity.
@@ -20,14 +21,16 @@ export default function Home() {
               <Button href="/work" size="lg">Explore Our Work</Button>
               <Button href="/about" variant="ghost" size="lg">Our Philosophy</Button>
             </div>
-          </div>
+            </div>
+          </Reveal>
         </Container>
       </Section>
 
       {/* Identity / Mission */}
       <Section className="bg-stone-100 py-24 md:py-32 border-y border-stone-200">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+          <Reveal delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
             <div>
               <Typography variant="h2" className="mb-6">
                 Purpose-built for the long term.
@@ -39,10 +42,11 @@ export default function Home() {
                 By focusing on the fundamentals—excellent typography, clear information architecture, and robust engineering—we create digital experiences that earn trust instantly and age gracefully.
               </Typography>
             </div>
-            <div className="bg-stone-200 aspect-square md:aspect-[4/5] relative overflow-hidden">
+            <div className="bg-stone-200 aspect-square md:aspect-[4/5] relative overflow-hidden rounded-2xl shadow-sm">
               <Image src="/images/placeholders/hero.jpg" alt="Meridian Group Headquarters" fill className="object-cover" priority />
             </div>
-          </div>
+            </div>
+          </Reveal>
         </Container>
       </Section>
 

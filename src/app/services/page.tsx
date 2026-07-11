@@ -44,7 +44,7 @@ export default function ServicesPage() {
                 We bring structure, engineering rigor, and design excellence to enterprise challenges.
               </Typography>
             </div>
-            <div className="relative w-full aspect-[4/3] bg-stone-200 hidden lg:block">
+            <div className="relative w-full aspect-[4/3] bg-stone-200 hidden lg:block rounded-2xl overflow-hidden shadow-sm">
               <Image src="/images/placeholders/services.jpg" alt="Engineering Collaboration" fill className="object-cover" priority />
             </div>
           </div>

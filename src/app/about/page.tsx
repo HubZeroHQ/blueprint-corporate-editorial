@@ -34,7 +34,7 @@ export default function AboutPage() {
               <Typography variant="h3">
                 A tradition of excellence.
               </Typography>
-              <div className="relative w-full aspect-[21/9] bg-stone-200 my-4">
+              <div className="relative w-full aspect-[21/9] bg-stone-200 my-4 rounded-2xl overflow-hidden shadow-sm">
                 <Image src="/images/placeholders/about.jpg" alt="Executive Meeting Space" fill className="object-cover" />
               </div>
               <div className="prose prose-stone prose-lg">

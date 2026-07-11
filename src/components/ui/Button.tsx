@@ -4,14 +4,15 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-stone-900 text-stone-50 hover:bg-stone-800",
-        outline: "border border-stone-200 bg-transparent hover:bg-stone-100 text-stone-900",
-        ghost: "hover:bg-stone-100 text-stone-900",
-        link: "text-stone-900 underline-offset-4 hover:underline",
+        default: "bg-stone-900 text-stone-50 shadow hover:bg-stone-800 hover:shadow-md transition-all duration-300 active:scale-[0.98]",
+        outline:
+          "border border-stone-200 bg-transparent hover:bg-stone-100 hover:text-stone-900 transition-colors duration-300 active:scale-[0.98]",
+        ghost: "hover:bg-stone-100 hover:text-stone-900 transition-colors duration-300 active:scale-[0.98]",
+        link: "text-stone-900 underline-offset-4 hover:underline transition-all duration-300",
       },
       size: {
         default: "h-11 px-6 py-2",

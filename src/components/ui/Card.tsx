@@ -7,7 +7,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("group relative flex flex-col gap-6", className)}
+      className={cn("group relative flex flex-col gap-6 rounded-2xl transition-all duration-500 hover:-translate-y-1", className)}
       {...props}
     />
   )
@@ -18,7 +18,7 @@ const CardImage = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("relative aspect-[4/3] w-full overflow-hidden bg-stone-100", className)}
+      className={cn("relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-stone-100", className)}
       {...props}
     />
   )
