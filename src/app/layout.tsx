@@ -1,11 +1,25 @@
-import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 
 import "./globals.css";
 
 import { metadata } from "@/config/metadata";
 import { AppProvider } from "@/providers/AppProvider";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 export { metadata };
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -13,9 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <AppProvider>{children}</AppProvider>
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <body className="font-sans text-stone-900 bg-stone-50 antialiased selection:bg-stone-200 flex flex-col min-h-screen">
+        <AppProvider>
+          <Header />
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </AppProvider>
       </body>
     </html>
   );

@@ -1,12 +1,16 @@
 {
-  "name": "blueprint-base",
-  "version": "0.1.0",
+  "name": "blueprint-corporate-editorial",
+  "version": "1.0.0",
+  "description": "HubZero Focused Blueprint for modern, high-end corporate and consulting firms.",
+  "author": "HubZero",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

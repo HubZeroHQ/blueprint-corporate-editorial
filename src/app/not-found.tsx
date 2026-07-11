@@ -1,13 +1,25 @@
-import Link from "next/link";
+import { Page, Section, Container } from "@/components/layout";
+import { Typography, Button } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4">
-      <h1 className="text-3xl font-semibold">404</h1>
-
-      <p>The requested page could not be found.</p>
-
-      <Link href="/">Return Home</Link>
-    </main>
+    <Page>
+      <Section className="py-32 md:py-48 flex items-center justify-center min-h-[70vh]">
+        <Container>
+          <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-8">
+            <Typography variant="caption" className="text-stone-400">Error 404</Typography>
+            <Typography variant="h1">
+              Page not found.
+            </Typography>
+            <Typography variant="body" className="text-xl max-w-md">
+              The page you are looking for does not exist or has been moved.
+            </Typography>
+            <Button href="/" size="lg" className="mt-4">
+              Return to Homepage
+            </Button>
+          </div>
+        </Container>
+      </Section>
+    </Page>
   );
 }

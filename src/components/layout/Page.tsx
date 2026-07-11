@@ -2,7 +2,7 @@ import type { HTMLAttributes } from "react";
 
 import { cn } from "@/utils/cn";
 
-interface PageProps extends HTMLAttributes<HTMLDivElement> {}
+export type PageProps = HTMLAttributes<HTMLDivElement>;
 
 export function Page({
   className,

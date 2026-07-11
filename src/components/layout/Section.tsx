@@ -2,7 +2,7 @@ import type { HTMLAttributes } from "react";
 
 import { cn } from "@/utils/cn";
 
-interface SectionProps extends HTMLAttributes<HTMLElement> {}
+export type SectionProps = HTMLAttributes<HTMLElement>;
 
 export function Section({
   className,
