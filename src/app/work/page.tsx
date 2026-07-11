@@ -68,7 +68,7 @@ export default function WorkPage() {
             {works.map((work) => (
               <Link key={work.slug} href={`/work/${work.slug}`} className="group">
                 <Card className="h-full bg-transparent border-0 gap-6">
-                  <CardImage className="aspect-[4/3] bg-stone-200 overflow-hidden relative">
+                  <CardImage className="aspect-[4/5] md:aspect-[4/3] bg-stone-200 overflow-hidden relative">
                     <Image src={work.image} alt={work.title} fill className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" />
                   </CardImage>
                   <CardHeader className="space-y-3">

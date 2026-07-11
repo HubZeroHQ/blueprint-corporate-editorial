@@ -5,11 +5,11 @@ import { cn } from "@/utils/cn";
 const typographyVariants = cva("text-stone-900", {
   variants: {
     variant: {
-      h1: "font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight",
-      h2: "font-serif text-4xl md:text-5xl font-medium tracking-tight leading-tight",
+      h1: "font-serif text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight",
+      h2: "font-serif text-3xl md:text-5xl font-medium tracking-tight leading-tight",
       h3: "font-serif text-2xl md:text-3xl font-medium leading-snug",
       h4: "font-serif text-xl md:text-2xl font-medium leading-snug",
-      lead: "text-xl md:text-2xl text-stone-600 leading-relaxed font-light",
+      lead: "text-lg md:text-xl lg:text-2xl text-stone-600 leading-relaxed font-light",
       body: "text-base md:text-lg text-stone-700 leading-relaxed",
       small: "text-sm text-stone-500 leading-normal",
       caption: "text-xs text-stone-400 uppercase tracking-widest font-medium",

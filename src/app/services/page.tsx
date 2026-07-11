@@ -44,7 +44,7 @@ export default function ServicesPage() {
                 We bring structure, engineering rigor, and design excellence to enterprise challenges.
               </Typography>
             </div>
-            <div className="relative w-full aspect-[4/3] bg-stone-200 hidden lg:block rounded-2xl overflow-hidden shadow-sm">
+            <div className="relative w-full aspect-[4/5] lg:aspect-[4/3] bg-stone-200 rounded-2xl overflow-hidden shadow-sm mt-8 lg:mt-0">
               <Image src="/images/placeholders/services.jpg" alt="Engineering Collaboration" fill className="object-cover" priority />
             </div>
           </div>
@@ -63,10 +63,10 @@ export default function ServicesPage() {
                     {service.description}
                   </Typography>
                   <div className="pt-4">
-                    <Button href={`/services/${service.id}`} variant="outline">Learn more about {service.title}</Button>
+                    <Button href={`/services/${service.id}`} variant="outline" className="w-full md:w-auto h-12">Learn more about {service.title}</Button>
                   </div>
                 </div>
-                <div className="lg:col-span-6 lg:col-start-7 bg-stone-50 p-8 md:p-12 border border-stone-200">
+                <div className="lg:col-span-6 lg:col-start-7 bg-stone-50 p-8 md:p-12 border border-stone-200 rounded-3xl shadow-sm">
                   <Typography variant="caption" className="block mb-6">Core Capabilities</Typography>
                   <ul className="flex flex-col gap-6">
                     {service.features.map((feature, i) => (

@@ -20,7 +20,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
               Modernizing legacy trading infrastructure to support a 10x increase in transaction volume.
             </Typography>
           </div>
-          <div className="relative w-full aspect-[21/9] bg-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-stone-200 rounded-2xl overflow-hidden shadow-sm">
             <Image src="/images/placeholders/work-logistics.jpg" alt={title} fill className="object-cover" priority />
           </div>
         </Container>
