@@ -1,5 +1,6 @@
 import { Page, Section, Container } from "@/components/layout";
 import { Typography } from "@/components/ui";
+import { site } from "@/config/site";
 
 export const metadata = {
   title: "Terms of Service",
@@ -19,17 +20,17 @@ export default function TermsPage() {
 
             <div className="prose prose-stone prose-lg">
               <Typography variant="body">
-                Please read these terms of service carefully before using our website.
+                Please read these terms of service carefully before using the {site.name} website.
               </Typography>
 
               <Typography variant="h3" className="mt-12 mb-6">1. Acceptance of Terms</Typography>
               <Typography variant="body">
-                By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.
+                By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement with {site.name}.
               </Typography>
 
               <Typography variant="h3" className="mt-12 mb-6">2. Use License</Typography>
               <Typography variant="body">
-                Permission is granted to temporarily download one copy of the materials on our website for personal, non-commercial transitory viewing only.
+                Permission is granted to temporarily download one copy of the materials on the {site.name} website for personal, non-commercial transitory viewing only.
               </Typography>
             </div>
           </div>

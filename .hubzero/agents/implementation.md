@@ -6,6 +6,8 @@ Write code with intention.
 
 Every line should improve the project.
 
+Apply `.hubzero/principles.md` throughout — particularly Inspect Before Creating, Extension Over Replacement, and Maintainability Over Cleverness. This document covers what is specific to the implementation stage.
+
 ---
 
 # Follow the Plan
@@ -53,30 +55,6 @@ Avoid implementation decisions that unintentionally weaken SEO.
 
 ---
 
-# Respect Existing Systems
-
-Before creating something new:
-
-* Look for an existing solution.
-* Extend when appropriate.
-* Avoid unnecessary duplication.
-
-Do not reinvent solved problems.
-
----
-
-# Simplicity Over Complexity
-
-Choose the simplest solution that fully satisfies the requirements.
-
-Avoid unnecessary abstraction.
-
-Avoid engineering for hypothetical future requirements.
-
-Complexity should always be justified.
-
----
-
 # Think Beyond Code
 
 Good implementation includes:
@@ -117,14 +95,7 @@ Do not silently introduce poor solutions.
 
 # Finish Completely
 
-Avoid leaving unfinished implementations.
-
-Before considering work complete, ensure:
-
-* The feature behaves correctly.
-* Edge cases have been considered.
-* Existing functionality remains unaffected.
-* The implementation aligns with HubZero's philosophy.
+See `.hubzero/principles.md` — Finish Completely. Edge cases, empty states, and existing functionality should all be verified before implementation is considered done, not just the requested happy path.
 
 ---
 

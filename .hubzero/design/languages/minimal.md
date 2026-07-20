@@ -44,25 +44,11 @@ Users should naturally focus on information before interface.
 
 ---
 
-# Whitespace
+# Typography Language
 
-Whitespace is an active design tool.
+Typography carries much of Minimal's visual identity, because so little else is present to carry it. Hierarchy is built through scale, weight, and rhythm — never through decoration, color, or ornamental type treatments. A Minimal type system should work with a small number of deliberate sizes and weights, reused consistently, rather than a wide scale that offers a size for every occasion.
 
-It establishes hierarchy, creates rhythm, and gives important content room to breathe.
-
-Whitespace should never exist simply because a page feels empty.
-
-Every increase in spacing should improve readability or emphasis.
-
----
-
-# Typography
-
-Typography carries much of the visual identity.
-
-Type should establish hierarchy through scale, weight, rhythm, and spacing rather than relying on excessive decoration.
-
-Well-considered typography is one of the defining characteristics of successful minimal design.
+When in doubt, remove a size step before adding one. Well-considered typography is one of the defining characteristics of successful Minimal design.
 
 ---
 
@@ -78,43 +64,75 @@ Every color should have a reason to exist.
 
 ---
 
-# Motion
+# Motion Language
 
-Motion should be subtle, purposeful, and restrained.
+Motion in Minimal is felt more than seen. Animations exist to reinforce understanding, create continuity, or provide feedback — never to entertain. Favor short, low-amplitude movement: fades, small position shifts, simple easing.
 
-Animations should reinforce understanding, create continuity, and provide feedback.
-
-Motion should rarely become the center of attention.
+Motion should rarely become the thing a user remembers about the page. If a visitor can describe an animation in detail afterward, it was too loud for Minimal.
 
 ---
 
-# Components
+# Photography Language
 
-Components should prioritize function before expression.
+Every image in a Minimal layout must justify its presence — Minimal has no room for imagery that merely fills space. Photography should be clean, well-composed, and quiet enough not to compete with the content around it: natural light over dramatic staging, a single clear subject over a busy scene.
 
-Visual complexity should only be introduced when it improves understanding or usability.
-
-Avoid decorative treatments that compete with content.
+When an image appears, it should feel like a deliberate pause in the content, generously surrounded by whitespace rather than cropped tightly into a grid.
 
 ---
 
-# Imagery
+# Corner Language
 
-Images should feel intentional.
+Corners should be treated with the same restraint as everything else: pick one radius — sharp or barely rounded — and apply it everywhere, without exception.
 
-Every image should contribute to storytelling, credibility, or communication.
-
-Avoid using imagery simply to occupy space.
+Corner treatment is not a place to add personality in Minimal. A design language this quiet cannot afford a rounded button beside a sharp card without the inconsistency reading as an accident.
 
 ---
 
-# Interaction
+# Border Language
 
-Interactions should feel predictable and refined.
+Borders are a last resort, not a default. Minimal prefers to separate content with space rather than with a line, because a border is itself a visual element that has to justify its presence.
 
-Users should understand how to interact with the interface without instruction.
+When a border is unavoidable — a table, an input — keep it a single hairline weight, low in contrast, and never decorative.
 
-Good interaction design often goes unnoticed.
+---
+
+# Shadow Language
+
+Shadow is nearly absent. Minimal communicates elevation through spacing, layering, and contrast in content weight, not through drop shadows implying depth.
+
+Where a shadow is functionally necessary — a dropdown, a modal — it should be so soft it is barely perceptible, never a visible design flourish.
+
+---
+
+# Spacing Language
+
+Whitespace is Minimal's primary instrument. It establishes hierarchy, creates rhythm, and gives important content room to breathe — it is never empty space left over because a page felt bare.
+
+Every increase in spacing should improve readability or emphasis. A page that uses more whitespace without a reason is not more Minimal, only emptier.
+
+---
+
+# Interaction Language
+
+Interactions should feel so predictable that they go unnoticed. Hover and focus states rely on small, understated shifts — a slight opacity change, a thin underline — rather than transforms, color inversions, or playful feedback.
+
+Users should understand how to use a Minimal interface without instruction, because nothing about it behaves unexpectedly. Good interaction design often goes unnoticed entirely.
+
+---
+
+# Component Language
+
+Components should prioritize function before expression. Visual complexity should only be introduced when it improves understanding or usability, never as decoration.
+
+A button, a card, an input should look like the simplest version of itself that still does its job clearly.
+
+---
+
+# Visual Rhythm
+
+A Minimal page should read as the same small, disciplined vocabulary of type, space, and restraint repeating with new content, section after section. Nothing new should be introduced halfway down the page that wasn't established near the top.
+
+The rhythm comes from repetition and proportion, not variety. Consistency is what makes a Minimal page feel complete rather than sparse.
 
 ---
 

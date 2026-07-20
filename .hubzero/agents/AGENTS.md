@@ -14,15 +14,19 @@ Your role is to build software consistent with HubZero's engineering philosophy,
 
 Unless instructed otherwise, consult these documents in the following order.
 
-1. `.hubzero/design/principles.md`
-2. Relevant document in `.hubzero/architecture/`
-3. Relevant document in `.hubzero/seo/`
-4. Relevant document in `.hubzero/design/languages/`
-5. Relevant agent guidance in this directory
+1. `.hubzero/principles.md`
+2. `.hubzero/architecture/principles.md`
+3. `.hubzero/design/principles.md`
+4. Relevant document in `.hubzero/architecture/`
+5. Relevant document in `.hubzero/seo/`
+6. Relevant document in `.hubzero/design/languages/`
+7. Relevant agent guidance in this directory (`planning.md`, `implementation.md`, `review.md`, `design-review.md`)
 
 Not every document needs to be read for every task.
 
 Read only what is relevant to the work being performed.
+
+`.hubzero/principles.md` is the canonical source of engineering reasoning. Every other document assumes it rather than restating it.
 
 ---
 
@@ -33,6 +37,40 @@ Read only what is relevant to the work being performed.
 Do not duplicate or reinterpret its contents.
 
 If guidance exists within `.hubzero`, follow it unless the user explicitly instructs otherwise.
+
+---
+
+# The Contract
+
+The sections below — Blueprint Core Integrity, Blueprint Base Infrastructure, Your Responsibilities, and Native Knowledge — define HubZero's behavioral contract for AI collaborators.
+
+This contract is independent of model or vendor. Any AI collaborator working inside a HubZero blueprint is expected to honor it.
+
+---
+
+# Blueprint Core Integrity
+
+The `.hubzero` directory is Blueprint Core.
+
+It is the canonical engineering knowledge shared across the HubZero ecosystem.
+
+AI agents may:
+
+- Read it
+- Reference it
+- Apply its guidance
+
+AI agents must never:
+
+- Modify it
+- Rewrite it
+- Reformat it
+- Delete it
+- Extend it
+
+Blueprint-specific knowledge belongs inside the blueprint repository, not Blueprint Core.
+
+Only HubZero Blueprint Core maintainers may intentionally update `.hubzero`.
 
 ---
 
@@ -75,6 +113,7 @@ When contributing to a HubZero Blueprint:
 * Preserve the blueprint's design language.
 * Build maintainable solutions.
 * Improve quality where appropriate.
+* Be honest about what the implementation can and cannot do — see `.hubzero/principles.md` — Honest Demonstration Over Simulated Functionality.
 
 Do not introduce unnecessary complexity.
 
@@ -146,19 +185,16 @@ Do not blindly implement poor design decisions without first communicating their
 
 Think before writing code.
 
-Prefer intentional solutions over clever ones.
+Apply `.hubzero/principles.md` — particularly Read Before Writing, Inspect Before Creating, Extension Over Replacement, and Maintainability Over Cleverness.
 
-Avoid unnecessary abstractions.
+Before considering an implementation complete:
 
-Respect the existing project structure.
-
-Before introducing new folders, modules, or abstractions, determine whether an appropriate location already exists.
-
-Prefer extending existing infrastructure over creating parallel implementations.
-
-Only introduce new architectural concepts when they solve a genuine engineering problem.
-
-Write code that another engineer would enjoy maintaining.
+- Review your own work.
+- Remove unnecessary complexity.
+- Eliminate duplication.
+- Verify consistency.
+- Verify the implementation renders predictably between server and client — see `.hubzero/principles.md` — Predictable Client/Server Rendering.
+- Ensure the implementation remains faithful to the selected Architecture, SEO strategy, and Design Language.
 
 ---
 
@@ -176,6 +212,30 @@ Evaluate:
 * Long-term value
 
 Look for opportunities to simplify without reducing capability.
+
+---
+
+# Completion Lifecycle
+
+A HubZero implementation progresses through five stages:
+
+1. Planning
+2. Implementation
+3. Engineering Review — is it correct? See `.hubzero/agents/review.md`.
+4. Design Review — would someone hire HubZero after seeing this? Includes the Mobile Experience Overhaul and Experience Generation passes. See `.hubzero/agents/design-review.md`.
+5. Release Verification
+
+Implementation is not complete simply because the requested functionality has been built. A technically correct blueprint that still reads as a template has not completed the lifecycle.
+
+After implementation:
+
+- Complete Engineering Review and Design Review using the guidance in `.hubzero/agents/`.
+- Resolve any findings from both.
+- Execute the canonical release process defined in:
+
+`.hubzero/release/RELEASE_CHECKLIST.md`
+
+Do not declare an implementation complete, production-ready, or ready for publication until every applicable release verification step has passed successfully.
 
 ---
 

@@ -18,8 +18,8 @@ export default function Home() {
               We design and engineer enterprise solutions that bring predictability to complex environments. Elegance is our signature.
             </Typography>
             <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 pt-6 md:pt-4 w-full md:w-auto">
-              <Button href="/work" size="lg" className="w-full md:w-auto h-14 md:h-12 text-base">Explore Our Work</Button>
-              <Button href="/about" variant="ghost" size="lg" className="w-full md:w-auto h-14 md:h-12 text-base border border-stone-200 md:border-none">Our Philosophy</Button>
+              <Button href="/work" size="lg" className="w-full md:w-auto h-14 md:h-12 text-base">Explore our work</Button>
+              <Button href="/about" variant="ghost" size="lg" className="w-full md:w-auto h-14 md:h-12 text-base border border-stone-200 md:border-none">Our philosophy</Button>
             </div>
             </div>
           </Reveal>

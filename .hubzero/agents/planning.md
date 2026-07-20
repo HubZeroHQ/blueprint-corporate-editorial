@@ -95,16 +95,6 @@ Ask questions when necessary.
 
 ---
 
-# Reuse Before Reinventing
-
-Blueprints exist to eliminate repeated engineering work.
-
-Prefer extending existing foundations over rebuilding solved problems.
-
-Personalize the blueprint without compromising its engineering quality.
-
----
-
 # Challenge Weak Decisions
 
 Do not blindly implement requests that significantly reduce usability, clarity, accessibility, or trust.
@@ -121,25 +111,9 @@ If the user still chooses to proceed, respect the decision.
 
 Avoid solving only the immediate request.
 
-Consider how today's decision affects:
+Consider how today's decision affects future maintainability, scalability, user experience, and design consistency. Prefer solutions that improve the overall system.
 
-* Future maintainability.
-* Scalability.
-* User experience.
-* Design consistency.
-* Engineering quality.
-
-Prefer solutions that improve the overall system.
-
----
-
-# Respect Blueprint Scope
-
-Blueprints are production-ready foundations.
-
-Do not introduce unnecessary complexity simply because it is technically interesting.
-
-Every addition should provide clear value.
+Apply `.hubzero/principles.md` here — particularly Extension Over Replacement, Composition Over Duplication, and Simplicity Requires Justification for Complexity. Blueprints exist to eliminate repeated engineering work; personalize without rebuilding solved problems.
 
 ---
 

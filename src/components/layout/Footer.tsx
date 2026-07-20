@@ -45,7 +45,9 @@ export function Footer() {
         <div className="mt-20 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-4 text-sm text-stone-500 md:text-stone-400">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p>
-            Engineered by <a href={site.author.url} className="text-stone-300 md:text-stone-50 hover:underline">{site.author.name}</a>
+            A fictional demonstration engineered by{" "}
+            <a href={site.author.url} className="text-stone-300 md:text-stone-50 hover:underline">{site.author.name}</a>
+            {" "}as part of the HubZero Blueprint ecosystem.
           </p>
         </div>
       </Container>

@@ -1,5 +1,6 @@
 import { Page, Section, Container } from "@/components/layout";
 import { Typography } from "@/components/ui";
+import { site } from "@/config/site";
 
 export const metadata = {
   title: "Privacy Policy",
@@ -19,7 +20,7 @@ export default function PrivacyPage() {
 
             <div className="prose prose-stone prose-lg">
               <Typography variant="body">
-                We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
+                {site.name} respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
               </Typography>
 
               <Typography variant="h3" className="mt-12 mb-6">1. Information we collect</Typography>

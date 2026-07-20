@@ -78,6 +78,22 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+
+      {/* About This Site */}
+      <Section className="py-24">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+            <div className="md:col-span-4">
+              <Typography variant="caption" className="sticky top-28">About This Site</Typography>
+            </div>
+            <div className="md:col-span-8 max-w-2xl">
+              <Typography variant="body" className="text-stone-600">
+                Meridian Group is a fictional company. This site exists as a demonstration of production-quality engineering, design, accessibility, and information architecture, built as part of the HubZero Blueprint ecosystem.
+              </Typography>
+            </div>
+          </div>
+        </Container>
+      </Section>
     </Page>
   );
 }

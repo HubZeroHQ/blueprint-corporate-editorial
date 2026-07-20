@@ -15,7 +15,7 @@ export default function NotFound() {
               The page you are looking for does not exist or has been moved.
             </Typography>
             <Button href="/" size="lg" className="mt-4">
-              Return to Homepage
+              Return to homepage
             </Button>
           </div>
         </Container>

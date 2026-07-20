@@ -42,65 +42,89 @@ Every page should read naturally from beginning to end.
 
 ---
 
-# Typography
+# Typography Language
 
-Typography is the primary visual element.
+Typography is the primary visual element — the thing that establishes Editorial's personality before color or imagery does.
 
-Hierarchy should be established through thoughtful scale, rhythm, spacing, and composition.
+Hierarchy is built through scale, weight, and rhythm rather than color or decoration. Line length and line height should be tuned for sustained reading, not just legibility at a glance. Reserve a distinct treatment — a larger size, a different weight, occasionally a pull-quote pattern — for the sentence or statement that should stop a reader mid-scroll.
 
-Well-crafted typography should communicate personality before imagery does.
-
----
-
-# Layout
-
-Layouts should breathe.
-
-Whitespace should establish rhythm and create comfortable reading experiences.
-
-Sections should feel connected rather than isolated.
-
-Long-form content should remain approachable and enjoyable to read.
+Avoid using more than a small number of deliberate type scale steps. Editorial hierarchy should read as considered, not improvised.
 
 ---
 
-# Color
+# Motion Language
 
-Color should reinforce the narrative rather than dominate it.
+Motion is quiet and in service of reading, never in service of spectacle.
 
-A restrained palette generally produces stronger editorial experiences than highly saturated interfaces.
+Entrances should feel like a page settling into place — gentle opacity and position shifts tied to scroll position — rather than elements arriving from off-screen with energy. Avoid bounce, overshoot, or elastic easing entirely; they read as playful, which contradicts Editorial's calm authority.
 
-Accent colors should guide attention, not compete with content.
-
----
-
-# Motion
-
-Motion should feel quiet and intentional.
-
-Transitions should support reading flow, orientation, and continuity.
-
-Avoid excessive movement that interrupts concentration.
+Transitions between sections should feel like turning a page, not launching an application. If a transition would feel out of place in a beautifully designed print publication, it does not belong in an Editorial blueprint.
 
 ---
 
-# Imagery
+# Photography Language
 
-Images should contribute to the story.
+Photography should read as documentary or editorial photography — the kind of image a respected publication would commission — not staged corporate stock photography.
 
-Photography, illustrations, and supporting visuals should provide context, atmosphere, or evidence rather than simply filling space.
+Prefer natural light, authentic context, and restrained color grading over glossy, artificially lit compositions. Images should function as chapter breaks in the narrative: generously margined or full-bleed, appearing at moments that earn a visual pause rather than filling a grid.
 
-Every image should justify its presence.
+Every image should justify its presence in the story being told. See `.hubzero/experience/photography.md` for how this translates into image generation.
 
 ---
 
-# Interaction
+# Corner Language
 
-Interactions should remain subtle.
+Corners should not call attention to themselves.
 
-The interface should never compete with the content.
+Use sharp or very subtly rounded corners consistently throughout — never a mix of sharp and heavily rounded elements. The restraint should feel closer to a printed page or column than a software interface.
 
-Navigation should feel predictable and allow visitors to remain focused on reading.
+---
+
+# Border Language
+
+Borders are used sparingly, as rule lines that separate sections the way a printed publication separates articles — thin, quiet, and structural.
+
+Avoid enclosing cards or content blocks in full borders as a default treatment. A hairline rule above or below a section communicates more calmly than a box around it.
+
+---
+
+# Shadow Language
+
+Shadow is nearly absent. Elevation and separation are communicated through whitespace and layering, not drop shadows.
+
+Where a shadow is functionally necessary — a modal, a dropdown — keep it extremely soft and low-contrast. Shadow should never be used decoratively to make a card "pop."
+
+---
+
+# Spacing Language
+
+Spacing follows a generous, rhythmic vertical baseline reminiscent of a printed column's leading.
+
+Whitespace is not empty space to be minimized — it is what allows long-form content to remain comfortable to read. When in doubt, add more space between sections rather than less.
+
+---
+
+# Interaction Language
+
+Interactions stay subtle enough that they never compete with the content being read.
+
+Hover states favor understated shifts — an underline appearing, a slight opacity or color change — over scale transforms or color inversions. Focus states should remain clearly visible without introducing visual noise. Navigation should feel predictable, so readers can stay focused on the content rather than learning the interface.
+
+---
+
+# Component Language
+
+Every recurring component should feel like part of the same publication, not a separate UI kit bolted onto the content.
+
+Favor understated buttons and text links over heavy, high-contrast call-to-action buttons where the context allows it — a reader who has been persuaded by the narrative does not need to be shouted at. Cards, when used, should read as article previews rather than product tiles: typography-led, minimally bordered, image as a secondary element.
+
+---
+
+# Visual Rhythm
+
+Pages should alternate between text-forward and image-forward sections the way a magazine spread alternates between long-form copy and full-page photography.
+
+Maintain consistent margins and a consistent baseline rhythm across every section so that the alternation feels composed rather than inconsistent. Every section should feel like the next chapter, not a different template.
 
 ---
 

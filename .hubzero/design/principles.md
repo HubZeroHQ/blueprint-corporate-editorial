@@ -76,7 +76,7 @@ Every page should naturally lead into the next.
 
 Navigation, content, interactions, and layout should work together to guide users through a clear journey.
 
-Think about the complete experience rather than isolated screens.
+Think about the complete experience rather than isolated screens. See `.hubzero/architecture/principles.md` — Complete User Journeys for concrete per-architecture journey examples.
 
 ---
 
@@ -106,9 +106,13 @@ Aim for clarity rather than emptiness.
 
 Animation should communicate.
 
-It should explain relationships, provide feedback, reduce cognitive load, and create continuity between interactions.
+Motion exists to express hierarchy, feedback, state, progression, and focus — what changed, what is happening, or what deserves attention right now. It should explain relationships, reduce cognitive load, and create continuity between interactions.
 
-Motion should never distract from content.
+Motion should never exist purely for decoration, and it should never distract from content.
+
+A Motion Language is a philosophy, not a duration setting. Choosing "150ms ease-out" is not choosing a Motion Language any more than choosing a font size is choosing a Typography Language — the decision that matters is what motion is *for* in this interface, and how much of the interaction language it carries.
+
+Zero motion is a completely valid answer to that decision, not an unfinished one. A Design Language can deliberately choose no animation and still express a rich Interaction Language through color, contrast, borders, or state change instead of movement — see `.hubzero/design/languages/brutalist.md` for a language built on exactly this choice. What distinguishes an intentional zero-motion language from an unfinished one is whether hover, focus, and active states were designed at all: a zero-motion language with no considered interaction feedback has not made a motion decision, it has skipped one.
 
 ---
 
@@ -161,6 +165,45 @@ Spacing, alignment, proportions, rhythm, imagery, interaction, and motion should
 Deliberate decisions create confidence.
 
 Confidence creates trust.
+
+---
+
+# Every Design Language Is a Complete System
+
+A design language is not a mood board. It is a system of decisions that removes ambiguity from implementation.
+
+Every document under `design/languages/` defines the same ten subsystems:
+
+* **Typography Language** — scale, rhythm, and voice.
+* **Motion Language** — how the interface moves and why.
+* **Photography Language** — subject, lighting, and treatment of imagery.
+* **Corner Language** — how corners are treated across components.
+* **Border Language** — presence, weight, and role of borders.
+* **Shadow Language** — presence, depth, and role of elevation.
+* **Spacing Language** — the rhythm of whitespace.
+* **Interaction Language** — how hover, focus, and active states behave.
+* **Component Language** — how recurring components express the language.
+* **Visual Rhythm** — how all of the above compose into a cohesive sequence across a page.
+
+When applying a design language, apply all ten. A blueprint that gets typography right but leaves motion, corners, or spacing undecided has not actually adopted a design language — it has adopted its typography and improvised the rest. Improvisation is where two blueprints built on different design languages accidentally converge on the same generic result.
+
+---
+
+# Navigation Is a Signature, Not a Recipe
+
+Floating navigation has proven to be a strong HubZero signature. Blueprint Core defines the philosophy behind it, never the implementation.
+
+Every blueprint should design its own floating navigation, expressed through its own Design Language. Shared philosophy, unique execution — the same principle that governs everything else in this document.
+
+Navigation should define its own reusable appearance states rather than accumulating page-specific hacks over time. Typical states include transparent, light, dark, frosted, scrolled, and mobile. Each blueprint decides which states it needs and how its Design Language expresses them, but the states themselves should be deliberate and named, not ad hoc conditionals scattered through the component.
+
+---
+
+# Signature Experience
+
+Every blueprint should include one deliberate, memorable interaction appropriate to its architecture and Design Language — an elegant floating navigation, a cinematic transition, a piece of live system motion, an immersive scroll sequence. What it is depends entirely on the blueprint.
+
+Restraint is what makes it work. One well-executed signature moment is memorable. Five competing ones cancel each other out and read as noise. Encourage memorable restraint, not maximal animation.
 
 ---
 

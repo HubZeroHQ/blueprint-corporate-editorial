@@ -3,6 +3,8 @@
 ## Overview
 **Blueprint Corporate Editorial** is a production-ready HubZero Focused Blueprint designed for mature consulting, engineering, and digital transformation firms. Built on the rock-solid foundation of HubZero Blueprint Base, this template provides a sophisticated, narrative-driven identity that prioritizes typography, hierarchy, and a premium reading experience.
 
+This repository is part of the **HubZero Blueprint** ecosystem. It contains a fictional demonstration website: "Meridian Group" does not exist, and every name, organization, product, testimonial, case study, and contact detail in this repository is fictional unless explicitly stated otherwise. The site exists to demonstrate production-quality engineering, design, accessibility, and information architecture, not to represent a real business.
+
 ## Features
 - **Corporate Information Architecture:** Structured to guide enterprise clients from identity and mission down to specific disciplines and deep-dive case studies.
 - **Editorial Design Language:** Prioritizes typography, whitespace, readable layouts, and restrained color usage over complex visual effects.

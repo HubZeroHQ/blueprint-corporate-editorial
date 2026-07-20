@@ -18,24 +18,6 @@ Users should feel they are interacting with sophisticated technology.
 
 ---
 
-# Typography
-
-Typography should feel structured and highly legible.
-
-Monospaced accents may be used sparingly to reinforce technical identity.
-
-Hierarchy should rely on spacing and weight rather than excessive styling.
-
----
-
-# Layout
-
-Layouts should emphasize grids, alignment, and consistency.
-
-Whitespace should improve comprehension rather than create drama.
-
----
-
 # Color Philosophy
 
 Colors should communicate clarity rather than emotion.
@@ -46,47 +28,63 @@ Avoid excessive gradients or decorative color palettes.
 
 ---
 
-# Shapes
+# Typography Language
 
-Simple geometry.
-
-Moderate corner radius.
-
-Strong alignment.
-
-Consistent proportions.
+Typography should read as system output as much as content — clean, highly legible sans-serifs for interface and body text, with monospace reserved for values that are literally technical: code, data points, identifiers, status labels. Hierarchy comes from a disciplined scale and weight system rather than size alone, so the page feels governed by rules rather than styled by hand. Avoid any typographic flourish that doesn't map to a functional distinction in the underlying system.
 
 ---
 
-# Spacing
+# Motion Language
 
-Spacing should reinforce rhythm and organization.
-
-Predictability is more valuable than visual novelty.
+Motion exists to make state legible, not to add delight. An element should animate because something in the system changed — a value updated, a process completed, a relationship between two elements became active — and the animation should make that change easier to track, not more decorative. Keep durations short and easing linear or close to it; motion here should feel like a system reporting on itself, not an interface expressing emotion.
 
 ---
 
-# Motion
+# Photography Language
 
-Motion should communicate state changes and relationships.
-
-Animations should be subtle, purposeful, and performance-conscious.
+Imagery favors diagrams, architecture illustrations, and real product UI over photography of people or environments. When a screenshot or interface capture is used, it should be authentic and unretouched — a real view into how the system works — rather than a stylized mockup. Lifestyle photography, staged offices, and generic hero imagery of people at laptops have no place here; if an image doesn't explain how something works, it doesn't belong. See `.hubzero/experience/photography.md` for how this translates into image generation.
 
 ---
 
-# Imagery
+# Corner Language
 
-Favor diagrams, interfaces, engineering illustrations, and authentic product imagery.
-
-Avoid generic lifestyle photography.
+Corners use a small, tight radius — barely perceptible, just enough to soften the harshness of a pure right angle without reading as friendly or organic. The same radius token should apply to every button, input, card, and panel without variation, since inconsistency here reads as a bug rather than a design choice. Precision matters more than warmth: the radius should look calculated, not stylistic.
 
 ---
 
-# Components
+# Border Language
 
-Components should emphasize clarity, predictability, and usability.
+Borders are thin, precise, and used to define the grid rather than to decorate individual elements — hairline dividers between panels, single-pixel outlines on inputs and cards. Weight should stay consistent and light throughout; a heavy border reads as an emphasis this language reserves for something else. The grid itself, made visible through these thin lines, is what should communicate structure, not border thickness.
 
-Interactions should feel immediate and reliable.
+---
+
+# Shadow Language
+
+Shadow is nearly absent, used only in the smallest possible dose to lift an active or focused element a single, subtle step above its surroundings — a dropdown, a modal, a floating toolbar. Depth is primarily communicated through the grid, border, and the z-axis layering conveyed by opacity and border color rather than blur and offset. A Technical interface should look flat and precise, like a schematic, not soft and dimensional.
+
+---
+
+# Spacing Language
+
+Spacing follows a strict, grid-based system — consistent gutters, consistent gaps, everything aligned to the same underlying unit. Predictability is the goal: a user should be able to anticipate where the next element will sit based on the rhythm already established. Whitespace exists to make relationships between elements legible, not to create drama or luxury.
+
+---
+
+# Interaction Language
+
+Hover, focus, and active states should communicate exact system status — a border color change, a subtle background shift, a precise focus ring — with no ambiguity about which state is active. Feedback should be immediate and consistent across every component, the way a well-built application behaves rather than a marketing site. Avoid any interaction effect that doesn't map directly to a state the underlying system actually has.
+
+---
+
+# Component Language
+
+Components should look like they came from the same design system a real engineering team maintains: consistent tokens, predictable states, no bespoke one-off treatments. Cards, tables, and panels favor density and clarity over generous framing — this is a language built for people who want information quickly, not an experience to linger in. Every component should behave identically wherever it appears, reinforcing the sense of a coherent underlying system.
+
+---
+
+# Visual Rhythm
+
+A Technical page should read like a well-structured application screen rather than a marketing narrative: consistent grid, consistent density, and a rhythm driven by information hierarchy rather than alternating visual drama. Sections should feel like modules in the same system, connected by shared grid lines and spacing units rather than dramatic shifts in tone from section to section. The page should feel governed by the same rules end to end, the way a well-designed piece of software does.
 
 ---
 

@@ -107,7 +107,7 @@ export default function CareersPage() {
                     </div>
                   </div>
                   <Button variant="outline" className="md:opacity-0 group-hover:opacity-100 transition-opacity self-start md:self-center">
-                    Apply Now
+                    Apply now
                   </Button>
                 </div>
               ))}

@@ -1,6 +1,7 @@
 import { Page, Section, Container } from "@/components/layout";
-import { Typography, Button } from "@/components/ui";
+import { Typography } from "@/components/ui";
 import Image from "next/image";
+import { ContactForm } from "./ContactForm";
 
 export const metadata = {
   title: "Contact",
@@ -46,25 +47,7 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-stone-50 p-8 md:p-12 border border-stone-200 rounded-3xl shadow-sm">
-              <form className="flex flex-col gap-6">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-medium px-1">Name</label>
-                  <input type="text" id="name" className="h-12 border border-stone-300 bg-white px-5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" required />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-medium px-1">Email</label>
-                  <input type="email" id="email" className="h-12 border border-stone-300 bg-white px-5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" required />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="company" className="text-sm font-medium px-1">Company</label>
-                  <input type="text" id="company" className="h-12 border border-stone-300 bg-white px-5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="text-sm font-medium px-1">Message</label>
-                  <textarea id="message" rows={5} className="border border-stone-300 bg-white p-5 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-stone-900/20 focus:border-stone-900" required></textarea>
-                </div>
-                <Button type="submit" size="lg" className="mt-4 w-full sm:w-auto self-start">Send Message</Button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </Container>

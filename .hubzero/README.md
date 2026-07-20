@@ -57,9 +57,13 @@ For framework usage, implementation details, accessibility, security, or other g
 
 ## Directory Structure
 
-* `agents/` — Guidance for AI collaborators, planning, implementation, and review.
-* `architecture/` — Website architecture categories and information architecture.
-* `design/` — Design principles and design languages.
+* `principles.md` — The canonical engineering principles. Every other document assumes this rather than restating it.
+* `agents/` — Guidance for AI collaborators: planning, implementation, engineering review, and design review.
+* `architecture/` — General architecture principles, plus website architecture categories and information architecture.
+* `design/` — Design principles, design languages, and mobile experience guidance.
+* `seo/` — SEO principles and category-specific SEO strategy.
+* `experience/` — The experience standard, and brand, content, and photography generation guidance.
+* `release/` — The canonical release checklist.
 
 Additional directories may be introduced as Blueprint Core evolves, provided they contribute HubZero-specific knowledge rather than generic technical documentation.
 
@@ -70,3 +74,15 @@ Every document inside `.hubzero` should answer one question:
 > **"Does this teach an AI or developer something uniquely valuable about how HubZero builds software?"**
 
 If the answer is **no**, the document does not belong here.
+
+## Release Standards
+
+Every HubZero Focused Blueprint must pass the canonical release process before publication.
+
+The release process is defined in:
+
+.hubzero/release/RELEASE_CHECKLIST.md
+
+This document is part of Blueprint Core and must never be modified by AI agents or blueprint authors.
+
+All release verification should be performed against this checklist.
