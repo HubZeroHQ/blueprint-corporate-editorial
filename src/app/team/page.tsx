@@ -30,16 +30,16 @@ export default function TeamPage() {
             </Typography>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
-            {team.map((person) => (
-              <div key={person.name} className="flex flex-col gap-6">
-                <div className="aspect-square bg-stone-200" />
-                <div className="flex flex-col gap-2">
+          <div className="border-t border-stone-300">
+            {team.map((person, index) => (
+              <article key={person.name} className="grid grid-cols-[3rem_1fr] gap-y-4 border-b border-stone-300 py-8 md:grid-cols-12 md:items-start md:gap-8 md:py-10">
+                <span className="text-xs text-stone-400 md:col-span-1">0{index + 1}</span>
+                <div className="flex flex-col gap-2 md:col-span-4">
                   <Typography variant="h4">{person.name}</Typography>
                   <Typography variant="small" className="text-stone-500 uppercase tracking-widest">{person.role}</Typography>
-                  <Typography variant="body" className="mt-2 text-stone-600">{person.bio}</Typography>
                 </div>
-              </div>
+                <Typography variant="body" className="col-start-2 text-stone-600 md:col-span-6 md:col-start-7">{person.bio}</Typography>
+              </article>
             ))}
           </div>
         </Container>

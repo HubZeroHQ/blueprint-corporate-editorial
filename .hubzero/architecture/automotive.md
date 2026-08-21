@@ -8,7 +8,19 @@ The website should simplify comparison, communicate trust, and reduce uncertaint
 
 ---
 
-# Primary Goals
+# Classification
+
+- **Kind:** profile
+- **Parent:** `services` — read that document first; this one specializes it.
+- **Distinct on:** Trust mechanism — buyers demand provenance, specification, and dealer credibility before a high-value considered purchase.
+- **Composes with:** `ecommerce`, `booking`
+- **Modules:** locations, editorial, faq, about, contact, legal
+
+Canonical identity is recorded in `REGISTRY.md`. See `principles.md` — The Distinctness Test.
+
+---
+
+# Primary Objective
 
 - Showcase vehicles or services
 - Generate qualified enquiries
@@ -18,7 +30,7 @@ The website should simplify comparison, communicate trust, and reduce uncertaint
 
 ---
 
-# Primary Audience
+## Audience
 
 - Vehicle buyers
 - Existing owners
@@ -41,7 +53,7 @@ The website should simplify comparison, communicate trust, and reduce uncertaint
 
 ---
 
-# Information Architecture
+# Information Hierarchy
 
 Vehicles or services should remain the primary navigation focus.
 
@@ -49,7 +61,33 @@ Visitors should easily move from browsing inventory to comparing options and req
 
 ---
 
-# Core Functionality
+# Content Model
+
+Automotive content is a specification graph. Every claim a buyer weighs must resolve to one canonical numeric record.
+
+**Entities.** `Vehicle` (slug, model, variants, specifications, pricing, media). `Variant` (trim, options, price delta). `Specification` (label, value, unit). `Offer` (finance or lease terms, validity). `Location` (dealership or experience centre). `Article` (editorial).
+
+**Relationships.** Variants belong to a vehicle; specifications belong to a variant; offers reference variants; locations reference the vehicles they stock. Comparison views derive from the specification records themselves rather than from a separate comparison table.
+
+**Derivation.** Vehicle and variant routes, metadata, sitemap, `Vehicle` and `Offer` structured data, comparison sets, filter facets, and related-model suggestions all derive from these records.
+
+Every metric — range, capacity, performance, price — has exactly one canonical numeric representation, formatted at the point of display. A figure restated in a second place will eventually disagree with the first, and a buyer who notices has lost confidence in all of them.
+
+See `.hubzero/content/principles.md` for the contract these records must satisfy.
+
+---
+
+# Navigation
+
+Navigation is model-led. A visitor arrives thinking about a vehicle, not about a department.
+
+Surface the model range as the primary path, with ownership concerns — service, financing, charging — as a clearly separated secondary group. Locations and contact must be reachable from every page.
+
+Comparison is a persistent affordance rather than a page: a visitor building a comparison should be able to continue browsing without losing it, and should be able to share the result. Hold comparison selections in the URL so the state survives refresh and back-navigation.
+
+---
+
+# Interaction Model
 
 - Vehicle inventory
 - Search and filtering
@@ -76,7 +114,7 @@ Trust should come from accurate information rather than promotional claims.
 
 ---
 
-# Conversion Strategy
+# Conversion Model
 
 Encourage visitors to:
 
@@ -87,6 +125,19 @@ Encourage visitors to:
 - Apply for financing
 
 Reduce friction between research and enquiry.
+
+---
+
+# Common States
+
+Each of the following is authored content in the product's voice, designed before it occurs. See `.hubzero/content/principles.md` — Empty States Are Authored Content.
+
+- **A model with no available stock or offers.** State it plainly with a route to be notified or to contact a dealer, rather than showing an empty offers panel.
+- **A comparison with one vehicle selected.** The comparison view must be useful before it is complete.
+- **A comparison at its maximum.** Adding beyond the limit needs explicit feedback or deterministic replacement behaviour, never a silent no-op.
+- **A specification a variant does not have.** Distinguish "not applicable" from "not stated" — a blank cell means neither.
+- **Filters returning no vehicles.** Say which constraint is the limiting one.
+- **A location with no stock of the model being viewed.**
 
 ---
 
@@ -101,7 +152,7 @@ Reduce friction between research and enquiry.
 
 ---
 
-# Success Metrics
+# Definition of Success
 
 - Vehicle enquiries
 - Test drive bookings

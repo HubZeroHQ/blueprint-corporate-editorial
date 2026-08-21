@@ -1,35 +1,12 @@
 import { Page, Section, Container } from "@/components/layout";
 import { Typography } from "@/components/ui";
 import Link from "next/link";
+import { posts } from "@/config/content";
 
 export const metadata = {
   title: "Blog",
   description: "Insights, engineering practices, and architectural thinking.",
 };
-
-const posts = [
-  {
-    slug: "engineering-for-longevity",
-    title: "Engineering for Longevity: Why Boring Technology Wins",
-    date: "October 12, 2026",
-    category: "Engineering",
-    excerpt: "In an industry obsessed with the new, we've found that the most reliable, maintainable systems are built using proven, stable technologies."
-  },
-  {
-    slug: "designing-with-typography",
-    title: "The Hierarchy of Information: Typography in Enterprise Apps",
-    date: "September 28, 2026",
-    category: "Design",
-    excerpt: "How a rigorous approach to typographic scale and rhythm can solve complex data density problems in enterprise interfaces."
-  },
-  {
-    slug: "technical-due-diligence",
-    title: "Beyond the Codebase: The Art of Technical Due Diligence",
-    date: "September 15, 2026",
-    category: "Strategy",
-    excerpt: "What we look for when evaluating an architecture's ability to support long-term business objectives."
-  }
-];
 
 export default function BlogPage() {
   return (

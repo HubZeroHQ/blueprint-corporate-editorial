@@ -8,7 +8,19 @@ Operational clarity should always take precedence over marketing language.
 
 ---
 
-# Primary Goals
+# Classification
+
+- **Kind:** profile
+- **Parent:** `services` — read that document first; this one specializes it.
+- **Distinct on:** Retrieval model — shipment lookup and coverage query alongside conventional service discovery.
+- **Composes with:** —
+- **Modules:** locations, careers, editorial, about, contact, legal
+
+Canonical identity is recorded in `REGISTRY.md`. See `principles.md` — The Distinctness Test.
+
+---
+
+# Primary Objective
 
 - Explain logistics services
 - Generate qualified enquiries
@@ -18,7 +30,7 @@ Operational clarity should always take precedence over marketing language.
 
 ---
 
-# Primary Audience
+## Audience
 
 - Businesses
 - Manufacturers
@@ -43,7 +55,7 @@ Operational clarity should always take precedence over marketing language.
 
 ---
 
-# Information Architecture
+# Information Hierarchy
 
 Visitors should immediately understand:
 
@@ -57,7 +69,37 @@ Service discovery should require minimal effort.
 
 ---
 
-# Core Functionality
+# Content Model
+
+Logistics content combines a service catalogue with an operational coverage model.
+
+**Entities.** `Service` (slug, description, modes, transit expectations). `Coverage` (region, service references, constraints). `Industry` (sector-specific solutions). `Location` (branch, depot, hours). `Article` (resources).
+
+**Relationships.** Services reference the coverage regions they operate in and the industries they serve; locations reference the services available at them.
+
+**Derivation.** Service and industry routes, coverage surfaces, metadata, sitemap, `Organization` and `Service` structured data, and branch listings all derive from these records.
+
+Coverage is the field most damaging to have stale or vague, because a customer plans around it. Where coverage does not extend, say so explicitly — a stated gap is more useful than an ambiguous map.
+
+Shipment tracking is the architecture's defining interaction and almost always exceeds a blueprint's honest capability. Demonstrate the interface against authored sample data and state plainly that it is not connected to a live system.
+
+See `.hubzero/content/principles.md` for the contract these records must satisfy.
+
+---
+
+# Navigation
+
+Navigation separates the two things a visitor comes for: understanding the service, and performing an operational task.
+
+Services, industries, and coverage form the commercial path. Tracking and quote requests are operational and must be reachable immediately from every page — a returning customer tracking a shipment should never navigate a marketing hierarchy to reach it.
+
+Coverage should be explorable by region, with the constraint stated where coverage ends.
+
+Branch and depot locations are reachable directly and cross-linked from coverage.
+
+---
+
+# Interaction Model
 
 - Shipment tracking
 - Quote requests
@@ -83,7 +125,7 @@ Trust should come from demonstrated operational capability rather than promotion
 
 ---
 
-# Conversion Strategy
+# Conversion Model
 
 Encourage visitors to:
 
@@ -93,6 +135,18 @@ Encourage visitors to:
 - Explore industry-specific solutions
 
 Reduce friction between enquiry and response.
+
+---
+
+# Common States
+
+Each of the following is authored content in the product's voice, designed before it occurs. See `.hubzero/content/principles.md` — Empty States Are Authored Content.
+
+- **A tracking lookup with no match.** The most-used interaction in this architecture and the state most likely to be reached. It needs a genuine next step, not a bare negative.
+- **A region outside coverage.** State the boundary explicitly rather than returning nothing.
+- **A service unavailable on a given lane or mode.**
+- **A branch temporarily closed.**
+- **The honest tracking boundary.** Tracking against authored sample data must say so where the visitor enters a reference, not only in the README.
 
 ---
 
@@ -107,7 +161,7 @@ Reduce friction between enquiry and response.
 
 ---
 
-# Success Metrics
+# Definition of Success
 
 - Quote requests
 - Shipment tracking usage

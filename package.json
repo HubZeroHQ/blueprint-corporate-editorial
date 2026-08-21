@@ -1,9 +1,24 @@
 {
   "name": "blueprint-corporate-editorial",
-  "version": "1.0.0",
-  "description": "HubZero Focused Blueprint for modern, high-end corporate and consulting firms.",
+  "version": "2.0.0",
+  "description": "A production-ready HubZero corporate blueprint expressing Meridian Group through an editorial design language.",
   "author": "HubZero",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubZeroHQ/blueprint-corporate-editorial.git"
+  },
+  "homepage": "https://github.com/HubZeroHQ/blueprint-corporate-editorial#readme",
+  "bugs": {
+    "url": "https://github.com/HubZeroHQ/blueprint-corporate-editorial/issues"
+  },
+  "keywords": [
+    "hubzero",
+    "blueprint",
+    "corporate",
+    "editorial",
+    "nextjs"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -15,8 +30,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.42.2",
-    "next": "16.2.10",
+    "next": "^16.3.2",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "sharp": "^0.35.3",
@@ -24,13 +38,13 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@hubzero/blueprint": "^1.5.0",
+    "@hubzero/blueprint": "^2.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "^16.3.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

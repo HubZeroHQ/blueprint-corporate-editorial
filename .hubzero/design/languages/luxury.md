@@ -12,6 +12,24 @@ Every interaction should feel considered.
 
 ---
 
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Restraint** — the option that asks for less attention wins.
+2. **Typography** — proportion and refinement carry the identity.
+3. **Spacing** — space itself communicates value.
+4. **Photography** — imagery is the primary material.
+5. **Colour** — narrow, confident, accents rare.
+6. **Corner and border** — minimal, precise.
+7. **Motion and shadow** — near-absent.
+
+Luxury resolves toward removal and distance. Where a treatment would make the experience more immediately engaging at the cost of composure, Luxury declines it — confidence is expressed by not needing to persuade.
+
+**Against Premium:** Premium *demonstrates* care through visible detail and satisfying feedback. Luxury *withholds*, creating value through space and absence. Faced with the same optional refinement, Premium adds it and Luxury removes it. A Luxury blueprint accumulating small delightful details has drifted into Premium.
+
+---
+
 # Design Objective
 
 Create experiences that feel premium, timeless, and carefully crafted.
@@ -22,7 +40,7 @@ The interface should leave visitors with the impression that nothing has been ov
 
 ---
 
-# Core Characteristics
+# Signature Traits
 
 A Luxury blueprint should communicate:
 
@@ -56,7 +74,7 @@ Display typography should feel intentional rather than ornamental: a single cons
 
 ---
 
-# Color
+# Colour Language
 
 Color should communicate restraint.
 
@@ -152,7 +170,50 @@ The interface should never appear crowded or overly decorative.
 
 ---
 
-# Common Mistakes
+# Responsive Behavior
+
+Luxury depends on space and proportion, both of which a phone viewport is hostile to. This is the language that most requires mobile to be composed rather than adapted.
+
+Space is the language. Compressing margins to fit more content above the fold converts a Luxury layout into an ordinary one immediately. Accept more scrolling; the composure is the product.
+
+Photography should be recomposed rather than cropped down. A wide, atmospheric desktop image scaled to a phone loses the space that made it feel considered. Prefer taller, deliberately framed mobile crops chosen as their own compositions — this is a content decision recorded alongside the image, not a CSS one. See `.hubzero/content/principles.md` — Media Belongs to the Record.
+
+Typographic proportion must be re-established, not scaled. Display type that felt confident at desktop scale can feel merely large on a phone; line height and letter spacing usually need adjusting rather than inheriting.
+
+Navigation should remain understated. A full-bleed high-contrast mobile menu is the most common place a Luxury blueprint breaks character, because it is the one component built for utility rather than atmosphere.
+
+Motion stays near-absent. If anything, mobile should have less.
+
+---
+
+# Token Contract
+
+Luxury must own the following rather than inherit them.
+
+* **Spacing scale** — substantially more generous than a neutral default, especially at the upper end. This is the language's defining value.
+* **Type scale** — a wide range with a refined display end, plus explicitly tuned line height and letter spacing.
+* **Colour** — a narrow palette with deliberately rare accents. An inherited general-purpose scale provides variety this language exists to refuse.
+* **Radius** — minimal, precise, applied uniformly. Sharp or nearly sharp; a moderate inherited default reads as ordinary.
+* **Shadow** — near-absent. This is measurably less than Premium's perceptible elevation, and one of the few token-level differences between them.
+* **Motion duration and easing** — slow and unhurried where motion exists at all.
+
+Luxury is expressed through typography, rhythm, restraint, and image treatment. It is never achieved through gold, heavy shadow, or ornament, and a blueprint reaching for those has substituted decoration for the language.
+
+---
+
+# Suitable Architectures
+
+- Hospitality
+- Real Estate
+- Ecommerce
+- Portfolio
+- Booking
+
+Luxury suits architectures where the offering is aspirational and the visitor is expected to take time. It is a poor fit wherever a visitor arrives with an urgent task — Government, Documentation, and Logistics all need efficiency this language deliberately declines to provide.
+
+---
+
+# Anti-Patterns
 
 Avoid confusing luxury with extravagance.
 

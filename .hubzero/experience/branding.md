@@ -18,15 +18,17 @@ Brand Generation happens before Content Generation (`content.md`) and Photograph
 
 # What a Generated Brand Includes
 
-* Company name, tagline, and voice.
-* Logo (primary mark).
-* Favicon.
-* Brand mark (a simplified variant of the logo for compact contexts).
-* Open Graph image.
-* Apple touch icons.
-* Light and dark variants of the above where the Design Language supports a dark mode.
+Brand Generation produces the brand's **identity**:
 
-The logo, brand mark, and favicon may be SVG — they render at a single size or scale losslessly, and the major platforms that use them (browsers, the site itself) render SVG reliably. The Open Graph image should be a raster format (PNG or JPEG) instead. Social platforms that render link previews have inconsistent and often absent SVG support; a raster Open Graph image is the one choice that renders correctly everywhere it needs to.
+* Company name, tagline, and voice.
+* The personality the brand expresses.
+* The visual system the assets are drawn from.
+
+It also produces the **asset set** that carries that identity — logo, brand mark, favicon, apple touch icon, Open Graph image, and light and dark variants where the Design Language supports a dark appearance.
+
+**`assets.md` is the canonical Asset Contract.** It owns the required set, the acceptable formats and why each is required, the integration points, and the audit that verifies completeness. Consult it rather than this document when deciding what to produce or what format to produce it in.
+
+This document owns how a brand is generated and to what quality standard.
 
 ---
 

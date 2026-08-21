@@ -30,6 +30,14 @@ Append to this prompt, per image:
 
 ---
 
+# Which Images Are Required
+
+This document defines how an image is generated. **`assets.md` defines which images must exist**, what form they take, and when the set is complete — including mobile crops, dark-appearance variants, and the Open Graph image's distinct requirements.
+
+Every generated image carries its ratio, focal point, responsive sizing hints, loading priority, and alternative text with its content record. See `.hubzero/content/principles.md` — Media Belongs to the Record.
+
+---
+
 # Generated Asset Philosophy
 
 The same philosophy that governs brand assets governs photography. See `branding.md` — Generated Asset Philosophy. Images are configuration-driven, generation happens after implementation, and generation tooling is removed before release.

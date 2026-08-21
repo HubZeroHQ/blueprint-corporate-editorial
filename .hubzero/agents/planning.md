@@ -28,19 +28,34 @@ Implementation should always be a consequence of planning.
 
 Identify which architecture best represents the project.
 
-Examples include:
+**Read the canonical list from `.hubzero/architecture/REGISTRY.md`.** Do not work from a list in a prompt or from memory — the registry is the only place architecture names live, and it records classifications and aliases that a list cannot.
 
-* Corporate
-* Services
-* Marketing
-* SaaS
-* Ecommerce
-* Portfolio
-* Manufacturing
-* Healthcare
-* Finance
+Three decisions follow, in order:
 
-Consult the relevant document under `.hubzero/architecture/` before making architectural decisions.
+**1. Which primary architecture?** Every blueprint declares exactly one. A blueprint that cannot name its primary architecture has not finished planning — "both equally" is a deferred decision that resurfaces later as incoherent navigation.
+
+**2. Is it a profile?** Where the registry classifies an architecture as a profile, read its parent's document first for the journey, then the profile's for what its audience specifically demands. Reading only the profile produces a site that knows what credentials to display and not what order to establish confidence in.
+
+**3. Does it compose?** Some products genuinely are two architectures — a hotel is Hospitality composed with Booking. The registry records legitimate compositions. Prefer composition over inventing a new architecture; most apparent gaps are compositions.
+
+Then select the **composable modules** the blueprint carries — see `.hubzero/architecture/modules.md`. Carry a module when its responsibility is genuinely part of the product. An abandoned module damages credibility more than its absence.
+
+---
+
+# Determine the Content Model
+
+Before any implementation, establish the entity graph: what records exist, how they relate, and what will derive from them.
+
+The architecture document's *Content Model* section states the entities. `.hubzero/content/principles.md` defines the contract they must satisfy.
+
+Getting this wrong is the most expensive architectural mistake available, because routes, navigation, metadata, sitemap, structured data, related content, and search all inherit the error.
+
+Decide explicitly:
+
+* The canonical records and their stable identifiers.
+* The relationships between them, and where they resolve.
+* What each record must carry to fill every surface it appears on.
+* Which states can legitimately be empty, and what they say.
 
 ---
 
@@ -48,11 +63,13 @@ Consult the relevant document under `.hubzero/architecture/` before making archi
 
 Every blueprint should express a deliberate visual identity.
 
+**Read the canonical list from `.hubzero/design/languages/REGISTRY.md`.** Its `Leads with` and `Nearest` columns are the fastest way to distinguish adjacent languages — several are close enough that choosing between them requires reading both.
+
 Select the design language that best supports the client's goals rather than personal preference.
 
-Consult the relevant document under `.hubzero/design/languages/`.
-
 Do not combine multiple design languages unless explicitly required.
+
+Adopting a design language means committing to **all of it** — the eleven subsystems and the six contract sections defined in `.hubzero/design/principles.md`. In particular, read the language's **Token Contract** during planning rather than discovering it at review: it states which shared values the blueprint must own rather than inherit, and a blueprint that inherits them has not adopted its language regardless of how the result looks.
 
 ---
 
@@ -130,7 +147,6 @@ Before writing code, mentally verify:
 
 Only then begin implementation.
 
----
 
 # Guiding Principle
 

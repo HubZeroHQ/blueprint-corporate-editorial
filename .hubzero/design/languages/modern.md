@@ -10,6 +10,24 @@ The goal is to communicate that the business is capable, forward-thinking, and a
 
 ---
 
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Clarity** — the option a visitor understands faster wins.
+2. **Systematic consistency** — one logic applied everywhere.
+3. **Typography** — a disciplined, contemporary scale.
+4. **Spacing** — structured and even.
+5. **Colour** — confident accents with a stated purpose.
+6. **Corner and shadow** — moderate, uniform, systematic.
+7. **Motion** — smooth, brief, functional.
+
+Modern resolves toward the clearer option, then toward the more consistent one. It is the least idiosyncratic language in the library, and that is its function rather than a weakness.
+
+**This makes Modern the language most at risk of convergence.** It is the default a blueprint drifts toward when its actual language is left unimplemented. Choosing Modern deliberately therefore carries an obligation the other languages do not have: its Anti-Patterns and Token Contract must be applied strictly, or the result is indistinguishable from an unfinished blueprint of any other language.
+
+---
+
 # Design Objective
 
 Create experiences that feel contemporary, intuitive, and technologically confident while remaining timeless enough to age gracefully.
@@ -18,7 +36,7 @@ Modern design should inspire confidence rather than novelty.
 
 ---
 
-# Core Characteristics
+# Signature Traits
 
 A Modern blueprint should communicate:
 
@@ -42,7 +60,7 @@ Visual expression should strengthen communication rather than compete with it.
 
 ---
 
-# Color
+# Colour Language
 
 Color should reinforce identity.
 
@@ -122,7 +140,49 @@ Every expressive decision should improve communication.
 
 ---
 
-# Common Mistakes
+# Responsive Behavior
+
+Modern's systematic consistency is what has to survive to mobile, and it is exactly what a hurried responsive pass erodes.
+
+Radius, spacing steps, and shadow depth must stay proportionally consistent at handheld width. A card that shares a radius with a button on desktop and diverges on mobile has broken the single property this language is built on — and the divergence is easy to introduce, because each component is usually adjusted separately.
+
+Recompose multi-column grids into a deliberately paced vertical sequence rather than three stacked columns. Modern's grids are its most desktop-dependent structure and the most common place it produces a monotonous mobile stack.
+
+Interaction feedback needs a touch equivalent. Modern leans on hover states more than most languages; without a considered press state, mobile loses the responsiveness that makes the system feel polished.
+
+Type scale should compress, but the *hierarchy* between levels must remain visible. Two heading levels that collapse to nearly the same size on a phone have removed the structure the scale existed to express.
+
+---
+
+# Token Contract
+
+Modern must own the following rather than inherit them.
+
+* **Radius** — a moderate value, chosen and applied uniformly. Because a general-purpose default is also moderate, this is the token most likely to be inherited by accident here. Choose it explicitly and record the choice, so a later reviewer can tell the difference between a decision and an inheritance.
+* **Colour** — a palette with genuinely confident accents. Modern permits stronger colour than Minimal, and a blueprint that does not use that permission has built Minimal without saying so.
+* **Type scale** — a contemporary system with clear steps.
+* **Spacing scale** — structured and even.
+* **Shadow** — a defined, restrained elevation scale used systematically rather than decoratively.
+* **Motion duration and easing** — smooth and brief.
+
+Modern is where the convergence problem is most acute, because its correct values sit close to what any neutral foundation provides. The test is not whether the values look reasonable — they will. It is whether each one was chosen. A blueprint whose token file is byte-identical to the foundation it started from has not adopted this language, however plausible the result looks.
+
+---
+
+# Suitable Architectures
+
+- SaaS
+- Corporate
+- Services
+- Education
+- Marketing
+- Marketplace
+
+Modern suits architectures that need to feel current and credible without a strong personality of their own, particularly where the product itself supplies the character. It is a poor fit where a brand must be memorable through its design — Marketing blueprints for a distinctive brand, and Portfolio blueprints of any kind, usually need a language with more voice.
+
+---
+
+# Anti-Patterns
 
 Avoid chasing design trends simply because they are popular.
 

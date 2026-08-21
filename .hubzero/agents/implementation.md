@@ -93,11 +93,42 @@ Do not silently introduce poor solutions.
 
 ---
 
+# Build on the Content Model
+
+Implementation reads from canonical content records rather than restating them.
+
+Routes, metadata, sitemap entries, structured data, breadcrumbs, navigation, related content, and search indexes are all derived. If implementing a feature requires writing out a list that could have been computed from the content, the content model is being bypassed — see `.hubzero/content/principles.md`.
+
+The practical test during implementation: after adding a content record, nothing else should need editing.
+
+---
+
+# Decide What Is True Before JavaScript Runs
+
+Rendering determinism and progressive enhancement are design-time decisions, not defects to fix once a warning appears.
+
+Before writing a component that reads from the browser, consult `.hubzero/rendering.md`. Anything knowable only on the client belongs in a state update after mount, never in the value the first render depends on. Essential content must be meaningful before any script executes.
+
+Retrofitting this after building the obvious version means hunting the same class of bug through every component written the same way.
+
+---
+
+# Comment the Tradeoff, Not the Code
+
+A comment that restates what the code does adds nothing. A comment that records **why a decision was made** is what survives a handover.
+
+Where a decision is non-obvious — a constraint that must not be broken, a workaround for a genuine limitation, a value tuned for a measured reason — record the reasoning and name the principle it serves. Citing the specific `.hubzero` document makes the constraint traceable rather than mysterious.
+
+Six months later, that is the difference between a maintainable blueprint and a pile of choices nobody can safely change.
+
+---
+
 # Finish Completely
 
 See `.hubzero/principles.md` — Finish Completely. Edge cases, empty states, and existing functionality should all be verified before implementation is considered done, not just the requested happy path.
 
----
+Empty states are authored content in the product's voice, designed before the dataset can be empty — see `.hubzero/content/principles.md` — Empty States Are Authored Content, and the *Common States* section of the active architecture document.
+
 
 # Guiding Principle
 

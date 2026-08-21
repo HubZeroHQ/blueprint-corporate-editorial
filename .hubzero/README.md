@@ -55,15 +55,38 @@ When HubZero guidance conflicts with generic implementation preferences, prefer 
 
 For framework usage, implementation details, accessibility, security, or other general software engineering topics, rely on your native capabilities unless `.hubzero` intentionally overrides them.
 
+## Reusable Skills
+
+Blueprint Base also supplies reusable AI skills — assistant-specific directories such as `.agents/skills/` and `.claude/skills/` at the blueprint root, outside `.hubzero`.
+
+Skills are reusable implementation infrastructure, not knowledge. They assist engineers and AI assistants with implementation and review. They do not define HubZero's principles, standards, or lifecycle, and they never replace this directory.
+
+If a skill's behavior ever conflicts with guidance in `.hubzero`, `.hubzero` takes precedence.
+
 ## Directory Structure
 
 * `principles.md` — The canonical engineering principles. Every other document assumes this rather than restating it.
-* `agents/` — Guidance for AI collaborators: planning, implementation, engineering review, and design review.
-* `architecture/` — General architecture principles, plus website architecture categories and information architecture.
-* `design/` — Design principles, design languages, and mobile experience guidance.
-* `seo/` — SEO principles and category-specific SEO strategy.
-* `experience/` — The experience standard, and brand, content, and photography generation guidance.
-* `release/` — The canonical release checklist.
+* `rendering.md` — The rendering and runtime contract: deterministic rendering, runtime boundaries, and progressive enhancement.
+* `agents/` — Guidance for AI collaborators: planning, implementation, engineering review, and design review. `AGENTS.md` is the entry point and owns the Skills contract.
+* `architecture/` — Architecture principles, the canonical **architecture registry**, composable modules, and one document per architecture.
+* `content/` — The content contract: canonical records, relationships, and what derives from them.
+* `design/` — Design principles, mobile experience guidance, the canonical **design language registry**, and one document per design language.
+* `seo/` — SEO principles and category-specific SEO strategy, paired 1:1 with `architecture/`.
+* `experience/` — The experience standard, and brand, content, photography, and asset generation guidance.
+* `release/` — The canonical release checklist and the project knowledge package schema.
+
+## Canonical Registries
+
+Two documents are the only source of these names anywhere in the ecosystem:
+
+* `architecture/REGISTRY.md`
+* `design/languages/REGISTRY.md`
+
+Every other system — Blueprint Creator, skills, prompts, blueprint documentation — reads names from them rather than maintaining its own list. A name that does not appear in a registry is not an architecture or a design language.
+
+## The Four Knowledge Systems
+
+A HubZero blueprint is built on four complementary systems: **Architecture** (what it accomplishes), **Content** (what it is made of), **Design Language** (how it feels), and **SEO** (how it is found). None overrides another, and a strong blueprint satisfies all four. See `agents/AGENTS.md`.
 
 Additional directories may be introduced as Blueprint Core evolves, provided they contribute HubZero-specific knowledge rather than generic technical documentation.
 

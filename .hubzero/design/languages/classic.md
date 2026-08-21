@@ -8,6 +8,24 @@ Its strength comes from consistency, clarity, and restraint.
 
 ---
 
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Proportion** — established compositional relationships over contemporary preference.
+2. **Typography** — a considered type system carries the authority.
+3. **Spacing** — measured and symmetrical.
+4. **Border and rule** — structure drawn with discipline.
+5. **Colour** — restrained, one accent used sparingly.
+6. **Corner** — conventional and unremarkable.
+7. **Motion and shadow** — quiet.
+
+Classic resolves toward the option that will still look correct in ten years. Where a contemporary treatment and an established one conflict, it chooses the established one — not from conservatism, but because permanence is the quality it exists to communicate.
+
+**Classic is not generic.** The temptation is to reach for navy, gold, a serif heading, and a stock hero image. Classic earns its character through proportion, rules, and one accent used sparingly — never through period signifiers applied as decoration.
+
+---
+
 # Design Objective
 
 Create experiences that feel dependable, refined, and enduring.
@@ -16,7 +34,7 @@ Visitors should immediately feel comfortable using the interface.
 
 ---
 
-# Core Characteristics
+# Signature Traits
 
 A Classic blueprint should communicate:
 
@@ -46,7 +64,7 @@ Restraint here is what keeps the design from dating itself.
 
 ---
 
-# Color
+# Colour Language
 
 Color should support communication and brand identity.
 
@@ -126,7 +144,51 @@ The absence of surprise is the point, not a limitation.
 
 ---
 
-# Common Mistakes
+# Responsive Behavior
+
+Classic depends on symmetry and measured proportion, neither of which survives a single narrow column unattended.
+
+Symmetry must be re-established rather than abandoned. A centred, balanced desktop composition becomes a centred, balanced mobile one — with margins that stay visibly deliberate rather than collapsing to the viewport edge. Content running edge to edge is the fastest way a Classic blueprint stops reading as considered.
+
+Rules and hairlines carry structure here, and they must survive the transition. A rule that separated columns on desktop becomes a rule that separates stacked sections, not a rule that disappears.
+
+Type proportion is re-established, not scaled. Classic's authority comes from the relationships between sizes; compressing them uniformly flattens the hierarchy that created the impression of order.
+
+Navigation should stay restrained and legible. Where a business lists many sections — practices, departments, services — presenting them flat on mobile is more usable than nesting them behind a second tap, and more consistent with the language's directness.
+
+Reading measure needs verification at handheld width, since Classic layouts frequently carry substantial prose.
+
+---
+
+# Token Contract
+
+Classic must own the following rather than inherit them.
+
+* **Type families and scale** — a considered type system, typically with a serif carrying authority. This is where Classic's character actually lives, and it is the token set most often left at a default while period colours are added instead.
+* **Radius** — moderate and conventional, applied identically everywhere. Classic's corner treatment should be the one a visitor never consciously registers, which requires it to be uniform rather than merely reasonable.
+* **Colour** — a restrained palette with one accent used sparingly. Avoid trend-driven values; this language is explicitly built to age well.
+* **Border and rule weight** — defined explicitly, since rules structure the page.
+* **Spacing scale** — measured, with symmetrical relationships.
+* **Motion duration** — brief and quiet.
+
+Record the reasoning alongside these values. A design language expressed as commented tokens transfers to the next contributor far more reliably than one expressed as a set of component variants, and Classic's decisions are the kind that look arbitrary without their justification.
+
+---
+
+# Suitable Architectures
+
+- Legal
+- Finance
+- Education
+- Government
+- Corporate
+- Nonprofit
+
+Classic suits architectures where the institution's permanence is itself the value proposition. It is a poor fit where a business needs to signal that it is new, fast-moving, or disruptive — SaaS and Marketing blueprints usually work against this language rather than with it.
+
+---
+
+# Anti-Patterns
 
 Avoid appearing outdated.
 

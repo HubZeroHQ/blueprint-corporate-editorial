@@ -5,6 +5,10 @@
 
 This repository is part of the **HubZero Blueprint** ecosystem. It contains a fictional demonstration website: "Meridian Group" does not exist, and every name, organization, product, testimonial, case study, and contact detail in this repository is fictional unless explicitly stated otherwise. The site exists to demonstrate production-quality engineering, design, accessibility, and information architecture, not to represent a real business.
 
+![Meridian Group homepage](docs/screenshots/homepage.png)
+
+![Meridian Group work detail](docs/screenshots/work-detail.png)
+
 ## Features
 - **Corporate Information Architecture:** Structured to guide enterprise clients from identity and mission down to specific disciplines and deep-dive case studies.
 - **Editorial Design Language:** Prioritizes typography, whitespace, readable layouts, and restrained color usage over complex visual effects.
@@ -59,9 +63,9 @@ This blueprint is designed for complete reusability. You can replace branding an
 
 - **Branding & Metadata:** Update `src/config/site.ts` to change the global site name, description, and URLs.
 - **Navigation:** Modify `src/config/navigation.ts` to update header and footer routing.
-- **Placeholder Images:** Replace the `.jpg` files located in `public/images/placeholders/` with your own assets.
+- **Brand and imagery:** Replace assets in `public/brand/` and `public/images/placeholders/`, preserving the configured aspect ratios and focal intent.
 - **Colors & Typography:** Adjust the Tailwind theme variables inside `src/app/globals.css` to inject your own brand colors and global typography.
-- **Page Content:** Update the JavaScript objects and arrays at the top of each respective page file (e.g., `services`, `works`, `team`) to populate the pages with your own structural data.
+- **Canonical content:** Update `src/config/content.ts`; index routes, detail routes, metadata, static parameters, and sitemap entries derive from these records.
 
 ## Placeholder Content
 **Notice:** "Meridian Group" and all associated companies, people, testimonials, blog articles, and imagery are entirely fictional placeholder content. They are intended solely to demonstrate the blueprint's editorial design language and professional tone. Future projects should effortlessly overwrite these placeholders.
@@ -71,7 +75,9 @@ This blueprint is designed for complete reusability. You can replace branding an
 - `src/components/layout/`: Foundational structural components (Page, Section, Container, Header, Footer).
 - `src/components/ui/`: Reusable, styled UI primitives (Typography, Button, Card).
 - `src/config/`: Centralized site configuration, metadata, and navigation.
+- `src/config/content.ts`: Canonical service, industry, work, and editorial records.
 - `public/images/placeholders/`: Fictional premium placeholder imagery.
+- `public/brand/og-meridian.png`: Purpose-built 1200×630 social preview artwork.
 
 ## License
 MIT

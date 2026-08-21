@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     url: site.url,
     images: [
       {
-        url: "/images/placeholders/hero.jpg",
+        url: "/brand/og-meridian.png",
         width: 1200,
         height: 630,
-        alt: site.name,
+        alt: "Meridian Group — clarity from complexity",
       },
     ],
   },
@@ -42,5 +42,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: site.name,
     description: site.description,
+    images: ["/brand/og-meridian.png"],
   },
 };

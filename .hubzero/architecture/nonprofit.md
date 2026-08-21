@@ -8,7 +8,18 @@ Mission should always take precedence over marketing.
 
 ---
 
-# Primary Goals
+# Classification
+
+- **Kind:** primary
+- **Distinct on:** Entity graph (programmes, regions, beneficiaries), terminus (donation or volunteering), and trust mechanism (transparency about outcomes and limits).
+- **Composes with:** `events`, `blog`
+- **Modules:** editorial, careers, locations, about, contact, legal
+
+Canonical identity is recorded in `REGISTRY.md`. See `principles.md` — The Distinctness Test.
+
+---
+
+# Primary Objective
 
 - Communicate the organization's mission
 - Demonstrate measurable impact
@@ -19,7 +30,7 @@ Mission should always take precedence over marketing.
 
 ---
 
-# Primary Audience
+## Audience
 
 - Donors
 - Volunteers
@@ -45,7 +56,7 @@ Mission should always take precedence over marketing.
 
 ---
 
-# Information Architecture
+# Information Hierarchy
 
 Visitors should quickly understand:
 
@@ -58,7 +69,37 @@ Programs, impact, and donation pathways should be easy to discover.
 
 ---
 
-# Core Functionality
+# Content Model
+
+Nonprofit trust is strongest when methods, limits, and underperformance are modelled as primary content rather than appended as disclaimers.
+
+**Entities.** `Programme` (slug, region, methodology, outcomes, status). `Region`. `Story` (field notes, beneficiary narratives). `Person` (staff, trustees). `Report` (annual reviews, financials). `Event`.
+
+**Relationships.** Programmes reference regions and the people who run them; stories reference programmes and regions; reports reference programmes and periods.
+
+**Derivation.** Programme and region routes, impact surfaces, metadata, sitemap, `NGO` and `Article` structured data, and related content all derive from these records.
+
+Outcome records should carry their methodology and their limits as fields, not as footnotes. A programme record that can express "this underperformed, and here is why" produces a more credible organization than one that can only express success.
+
+Donation and volunteering flows almost always exceed a blueprint's honest capability. State the boundary at the point of interaction rather than presenting a form that appears to process a gift.
+
+See `.hubzero/content/principles.md` for the contract these records must satisfy.
+
+---
+
+# Navigation
+
+Navigation should lead with the work rather than with the organization.
+
+Programmes, impact, and stories form the primary path; the organization's structure, governance, and reports are secondary but must be easy to find — donors look for them deliberately, and burying them undermines the transparency the architecture depends on.
+
+Ways to participate — donating, volunteering, partnering — should be reachable from every page without dominating it.
+
+Where programmes span regions, both axes should be navigable, and both should derive from the same records.
+
+---
+
+# Interaction Model
 
 - Donation platform integration
 - Volunteer registration
@@ -83,7 +124,7 @@ Trust should come from openness, accountability, and measurable outcomes.
 
 ---
 
-# Conversion Strategy
+# Conversion Model
 
 Encourage visitors to:
 
@@ -94,6 +135,19 @@ Encourage visitors to:
 - Subscribe for updates
 
 Participation should feel meaningful rather than transactional.
+
+---
+
+# Common States
+
+Each of the following is authored content in the product's voice, designed before it occurs. See `.hubzero/content/principles.md` — Empty States Are Authored Content.
+
+- **A programme with no published outcomes yet.** New programmes are normal; saying so is more credible than implying results.
+- **A programme that underperformed.** This architecture should be able to express it as content rather than omitting the programme.
+- **A region with no active programmes.**
+- **No upcoming events.**
+- **A report period not yet published.**
+- **The honest donation boundary.** A donation page that cannot process a gift must state that at the point of giving. This is the most consequential honesty requirement in the library.
 
 ---
 
@@ -108,7 +162,7 @@ Participation should feel meaningful rather than transactional.
 
 ---
 
-# Success Metrics
+# Definition of Success
 
 - Donations
 - Volunteer registrations

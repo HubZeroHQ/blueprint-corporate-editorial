@@ -10,6 +10,24 @@ The absence of unnecessary elements should make important content more meaningfu
 
 ---
 
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Reduction** — if an element can be removed without losing meaning, remove it.
+2. **Typography** — carries nearly all hierarchy.
+3. **Spacing** — the primary compositional tool.
+4. **Content legibility** — never sacrificed to achieve emptiness.
+5. **Colour** — restrained, every value justified.
+6. **Border, corner, shadow** — quiet and uniform.
+7. **Motion** — minimal, functional.
+
+Minimal resolves toward removal — but reduction stops at the point where information is lost. Removing necessary information creates confusion, not clarity, and a page that is empty rather than clear has failed this language rather than perfected it.
+
+**Against Swiss:** Minimal leads with *reduction* — how little can be present. Swiss leads with *the grid* — how rigorously what is present is organized. A Swiss page can be dense and still correct; a dense Minimal page cannot.
+
+---
+
 # Design Objective
 
 Communicate with the fewest visual elements necessary while maintaining clarity, usability, and personality.
@@ -20,7 +38,7 @@ They should feel complete.
 
 ---
 
-# Core Characteristics
+# Signature Traits
 
 A Minimal blueprint should communicate:
 
@@ -52,7 +70,7 @@ When in doubt, remove a size step before adding one. Well-considered typography 
 
 ---
 
-# Color
+# Colour Language
 
 Color should communicate purpose.
 
@@ -146,7 +164,49 @@ The objective is to present complexity with clarity rather than to hide it.
 
 ---
 
-# Common Mistakes
+# Responsive Behavior
+
+Minimal survives the transition to mobile better than most languages and fails in one specific way: it becomes indistinguishable from an unstyled page.
+
+Spacing is what separates a Minimal layout from an empty one, and it is the first thing a careless mobile pass compresses. Protect the vertical rhythm between sections; reduce horizontal margin before reducing the space that establishes pacing.
+
+Because Minimal has so few devices, each one carries more weight at handheld width. Type scale, measure, and spacing are effectively the entire language on a phone — verify all three explicitly rather than assuming they scaled.
+
+Reading measure needs particular attention. A generous desktop measure that felt calm becomes a narrow column of short lines on mobile if the type scale was reduced without adjusting margins.
+
+Navigation should stay quiet. A Minimal blueprint that adopts a heavy, colourful mobile drawer has abandoned its language at exactly the viewport most visitors use.
+
+---
+
+# Token Contract
+
+Minimal must own the following rather than inherit them.
+
+* **Spacing scale** — more generous than a neutral default, with clearly differentiated steps. Spacing is this language's primary tool and cannot be inherited.
+* **Colour** — a deliberately narrow palette with each value justified. An inherited full-range scale offers variety this language has decided not to have.
+* **Radius** — one restrained value applied uniformly, or zero. Either is a decision; a moderate inherited default is not.
+* **Type scale** — a limited set of sizes with a clear hierarchy, since typography carries the work colour and ornament would carry elsewhere.
+* **Shadow** — absent or barely present. An inherited elevation scale contradicts the language.
+* **Motion duration** — short and functional.
+
+The risk specific to Minimal is that inherited defaults *look* acceptable, because restraint resembles absence. A blueprint whose tokens are indistinguishable from its starting foundation has not adopted this language — it has simply not customized anything, and the two are impossible to tell apart from the outside.
+
+---
+
+# Suitable Architectures
+
+- Corporate
+- Portfolio
+- Documentation
+- Healthcare
+- Government
+- Blog
+
+Minimal suits any architecture whose content is genuinely the product and whose audience values clarity over persuasion. It is a poor fit where a business must generate excitement or differentiate through personality — Marketing and Community architectures usually need more voice than this language permits.
+
+---
+
+# Anti-Patterns
 
 Avoid confusing minimalism with emptiness.
 

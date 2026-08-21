@@ -8,6 +8,24 @@ Bold should feel intentional rather than overwhelming.
 
 ---
 
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Scale** — the larger, more committed option wins.
+2. **Colour** — high contrast, used with conviction.
+3. **Typography** — display type carries the page.
+4. **Spacing** — dramatic, with large steps between levels.
+5. **Corner and border** — structural, never expressive.
+6. **Component** — simple forms that let scale and colour lead.
+7. **Motion** — confident, brief, never fussy.
+
+Bold resolves toward commitment. A treatment applied halfway is worse here than not applying it — a heading that is somewhat large reads as an accident, where one that is unmistakably large reads as a decision.
+
+**Against Expressive and Maximalist:** Bold achieves impact through *scale and contrast within a simple system*. Expressive achieves it through an authored shape vocabulary; Maximalist through density and layering. Bold's components stay plain so that size and colour can do the work — a Bold blueprint accumulating shape variety has drifted into Expressive.
+
+---
+
 # Design Objective
 
 Create memorable experiences that immediately establish identity while maintaining excellent usability.
@@ -16,7 +34,7 @@ Every visual decision should strengthen communication.
 
 ---
 
-# Core Characteristics
+# Signature Traits
 
 A Bold blueprint should communicate:
 
@@ -38,7 +56,7 @@ Avoid visual hesitation.
 
 ---
 
-# Color
+# Colour Language
 
 Bold welcomes stronger color usage than other design languages.
 
@@ -108,7 +126,51 @@ A Bold page moves in a sequence of clear focal moments — a dramatic statement,
 
 ---
 
-# Common Mistakes
+# Responsive Behavior
+
+Bold's identity is scale, and scale is the first thing a conventional responsive pass removes.
+
+Display type must stay dominant. A heading reduced to a comfortable mobile size has removed the language. Bold headings should still fill a meaningful proportion of the phone viewport — scale them relative to the viewport rather than stepping them down to a safe fixed size, and accept that a headline may occupy several lines.
+
+Contrast stays high. Softening colour relationships for a smaller screen produces a generic layout in Bold's palette.
+
+Full-bleed sections stay full-bleed. Introducing side margins to sections that ran edge to edge on desktop is a common instinct and directly contradicts the language.
+
+Spacing steps stay dramatic. Bold depends on the difference between tight and generous; compressing everything toward a middle value flattens the rhythm that created the impact.
+
+Because Bold uses fewer, larger elements, mobile composition is mostly a question of *order* — which oversized moment a visitor meets first, second, third. Sequence that deliberately rather than inheriting the desktop source order.
+
+---
+
+# Token Contract
+
+Bold must own the following rather than inherit them.
+
+* **Type scale** — a genuinely dramatic range, with a display end far above what a general-purpose scale provides. This is the defining token set; an inherited scale caps the language before it starts.
+* **Colour** — high-contrast, committed values. An inherited neutral palette with one accent produces Modern, not Bold.
+* **Spacing scale** — with large steps and a wide range between the tightest and most generous values.
+* **Radius** — sharp or minimally rounded, applied consistently. Corners are explicitly not where this language expresses itself, so the value should be quiet and uniform.
+* **Motion duration and easing** — confident and brief; nothing that reads as delicate.
+* **Border weight** — structural where present.
+
+Shadow is deliberately not on this list. Bold expresses emphasis through scale and colour, and reaching for elevation to add impact usually indicates the type scale is not committed enough.
+
+---
+
+# Suitable Architectures
+
+- Marketing
+- Automotive
+- Media
+- Ecommerce
+- Community
+- Events
+
+Bold suits architectures that need to capture attention quickly and hold one clear message. It is a poor fit wherever a visitor must absorb dense information or where an institution's restraint is part of its credibility — Government, Legal, Finance, and Documentation all work against this language.
+
+---
+
+# Anti-Patterns
 
 Avoid overwhelming users with competing focal points.
 

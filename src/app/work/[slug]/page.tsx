@@ -1,62 +1,6 @@
-import { Page, Section, Container } from "@/components/layout";
-import { Typography, Badge } from "@/components/ui";
-import Image from "next/image";
-
-export default async function WorkDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const title = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-
-  return (
-    <Page>
-      <Section className="py-24 md:py-32">
-        <Container>
-          <div className="max-w-4xl flex flex-col gap-8 mb-16">
-            <div className="flex gap-4">
-              <Badge variant="secondary">Systems Engineering</Badge>
-              <Badge variant="outline">2026</Badge>
-            </div>
-            <Typography variant="h1">{title}</Typography>
-            <Typography variant="lead" className="max-w-3xl">
-              Modernizing legacy trading infrastructure to support a 10x increase in transaction volume.
-            </Typography>
-          </div>
-          <div className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-stone-200 rounded-2xl overflow-hidden shadow-sm">
-            <Image src="/images/placeholders/work-logistics.jpg" alt={title} fill className="object-cover" priority />
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="py-12 md:py-24 border-t border-stone-200">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
-            <div className="md:col-span-3 flex flex-col gap-8">
-              <div>
-                <Typography variant="caption" className="block mb-2">Client</Typography>
-                <Typography variant="body" className="font-medium text-stone-900">{title}</Typography>
-              </div>
-              <div>
-                <Typography variant="caption" className="block mb-2">Role</Typography>
-                <Typography variant="body" className="font-medium text-stone-900">Architecture, Engineering</Typography>
-              </div>
-            </div>
-            
-            <div className="md:col-span-8 flex flex-col gap-12">
-              <div>
-                <Typography variant="h3" className="mb-6">The Objective</Typography>
-                <Typography variant="body">
-                  The client required a complete modernization of their core trading platform. The existing monolithic architecture could no longer scale to meet the demands of algorithmic trading desks, resulting in latency spikes during high-volatility events.
-                </Typography>
-              </div>
-              <div>
-                <Typography variant="h3" className="mb-6">The Solution</Typography>
-                <Typography variant="body">
-                  We designed and implemented a distributed, event-driven architecture. By decoupling the order matching engine from post-trade processing, we isolated critical latency paths. The new system handles 10x the previous volume with predictable, single-digit millisecond latency.
-                </Typography>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-    </Page>
-  );
-}
+import Image from "next/image"; import { notFound } from "next/navigation";
+import { Page, Section, Container } from "@/components/layout"; import { Typography, Badge, Button } from "@/components/ui";
+import { work } from "@/config/content"; import { createMetadata } from "@/seo/createMetadata";
+export function generateStaticParams(){return work.map(({slug})=>({slug}));}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const{slug}=await params;const item=work.find(x=>x.slug===slug);return item?createMetadata({title:item.title,description:item.summary,canonical:`/work/${slug}`,image:item.image}):{};}
+export default async function WorkDetailPage({params}:{params:Promise<{slug:string}>}){const{slug}=await params;const item=work.find(x=>x.slug===slug);if(!item)notFound();return <Page><Section className="page-opening"><Container><div className="editorial-intro mb-12"><div className="flex gap-3"><Badge>{item.category}</Badge><Badge variant="outline">{item.year}</Badge></div><Typography variant="h1">{item.title}</Typography><Typography variant="lead">{item.summary}</Typography></div><div className="relative aspect-[4/5] overflow-hidden bg-stone-200 md:aspect-[21/9]"><Image src={item.image} alt="" fill priority className="object-cover" sizes="(max-width: 768px) 100vw, 1280px"/></div></Container></Section><Section className="border-t border-stone-200"><Container><div className="grid gap-12 md:grid-cols-12"><aside className="space-y-7 md:col-span-3"><div><Typography variant="caption" className="mb-2 block">Client</Typography><p className="font-medium">{item.client}</p></div><div><Typography variant="caption" className="mb-2 block">Role</Typography><p className="font-medium">{item.role}</p></div></aside><div className="space-y-12 md:col-span-8"><div><Typography variant="h3" className="mb-5">Objective</Typography><Typography variant="body">{item.objective}</Typography></div><div><Typography variant="h3" className="mb-5">Response</Typography><Typography variant="body">{item.solution}</Typography></div><div className="border-l-2 border-stone-900 pl-6"><Typography variant="caption" className="mb-3 block">Result</Typography><Typography variant="h3">{item.result}</Typography></div><Button href="/contact">Start a conversation</Button></div></div></Container></Section></Page>}

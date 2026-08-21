@@ -10,13 +10,33 @@ It should never reduce professionalism.
 
 ---
 
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Warmth** — the option that feels more welcoming wins.
+2. **Corner and form** — generous rounding is the most visible commitment.
+3. **Colour** — vibrant, emotional, communicative.
+4. **Interaction and motion** — small feedback moments everywhere.
+5. **Typography** — friendly and highly legible.
+6. **Spacing** — comfortable, never cramped.
+7. **Border and shadow** — soft where present.
+
+Playful resolves toward friendliness — but never at the cost of the visitor's task. Delight that delays or obscures is not playful, it is obstructive, and this language fails more often through excess than through restraint.
+
+Playful benefits from **many small feedback moments rather than a few large cinematic ones.** A dozen well-judged micro-interactions build more personality than one elaborate animation, and they degrade far more gracefully.
+
+**Against Expressive:** Playful softens to create comfort; Expressive commits to shapes to create identity. Playful is warm, Expressive is energetic — a Playful blueprint reaching for dramatic asymmetry has drifted.
+
+---
+
 # Design Objective
 
 Create experiences that feel welcoming, engaging, and enjoyable while remaining easy to understand.
 
 ---
 
-# Core Characteristics
+# Signature Traits
 
 A Playful blueprint should communicate:
 
@@ -36,7 +56,7 @@ Creative visual moments should surprise users without disrupting usability.
 
 ---
 
-# Color
+# Colour Language
 
 Playful designs often embrace vibrant palettes.
 
@@ -104,7 +124,51 @@ A Playful page moves through a sequence of small delightful moments layered on t
 
 ---
 
-# Common Mistakes
+# Responsive Behavior
+
+Playful translates to mobile more naturally than most languages, because rounded forms and generous touch targets are already what a phone wants.
+
+Radius should scale with element size. A generous radius on a wide desktop card becomes a modest one on a narrow mobile card if the value is fixed — quietly removing the language's most identifying trait at the viewport where most visitors will meet it.
+
+Playful's personality lives in interaction feedback, and hover does not exist on a phone. Press states must carry that personality instead. Without deliberate touch feedback, a Playful blueprint becomes a colourful but inert layout on mobile — this is the single most common way this language is lost.
+
+Keep the micro-interactions and drop the large ones. A decorative sequence that delighted on desktop competes with a small viewport and a slower device; the small feedback moments cost nothing and carry the language better.
+
+Colour stays vibrant. Muting the palette for a smaller screen removes the warmth the language depends on.
+
+Reduced motion needs a genuine alternative composition. Playful leans on motion more than most languages, so removing it must leave something that still feels warm — expressed through colour, form, and state change rather than movement.
+
+---
+
+# Token Contract
+
+Playful must own the following rather than inherit them.
+
+* **Radius** — generous across the scale, and larger at the upper end than a general-purpose default. Rounded form is how this language signals warmth, and a moderate inherited value produces Modern.
+* **Colour** — a vibrant palette with genuine saturation, defined as semantic roles so that each accent carries correct on-colour text. Multiple accents each need their own verified foreground pairing.
+* **Motion duration and easing** — characterful curves, with permitted overshoot or bounce. A standard easing curve directly contradicts the Motion Language, and this is the token most often left inherited.
+* **Spacing scale** — comfortable, never tight.
+* **Shadow** — soft and friendly where present.
+* **Type scale** — approachable, with a legible, unfussy family.
+
+Vibrant palettes make contrast failures more likely, not less — a saturated accent that looks obviously strong can still fail against white or against its own on-colour text. Verify every accent against every surface and every foreground it carries, per the Contrast Contract in `.hubzero/design/principles.md`.
+
+---
+
+# Suitable Architectures
+
+- Community
+- Education
+- Nonprofit
+- Events
+- Marketing
+- Blog
+
+Playful suits architectures built around participation, learning, or belonging, where warmth lowers the barrier to taking part. It is a poor fit wherever a visitor needs to trust an institution with something consequential — Finance, Legal, Healthcare, and Government all require a gravity this language deliberately avoids.
+
+---
+
+# Anti-Patterns
 
 Avoid becoming childish.
 

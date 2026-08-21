@@ -8,7 +8,25 @@ Quality should be evident without appearing extravagant.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Execution quality** — whichever option can be executed precisely wins over the one that is merely more ambitious.
+2. **Consistency** — a rule applied everywhere beats a better rule applied unevenly.
+3. **Typography** — refined, deliberate proportion.
+4. **Spacing** — generous and intentional.
+5. **Interaction and motion** — where Premium demonstrates engineering quality.
+6. **Shadow and corner** — materiality expressed consistently.
+7. **Colour** — restrained, accents reserved.
+
+Premium resolves toward the thing it can do perfectly. An ambitious treatment executed at ninety percent undermines this language more than a simpler treatment executed completely, because craftsmanship is the entire claim.
+
+**Against Luxury:** where Luxury removes to create distance, Premium refines to create confidence. Luxury withholds; Premium demonstrates. When in doubt, Premium adds the small detail that proves care, and Luxury takes it away.
+
+---
+
+# Signature Traits
 
 - Craftsmanship over extravagance
 - Confidence over attention-seeking
@@ -26,7 +44,7 @@ The type system should feel finished, not merely functional.
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Color should reinforce sophistication through restraint.
 
@@ -102,6 +120,35 @@ A Premium page should hold up under scrutiny at every level of zoom — the over
 
 ---
 
+# Responsive Behavior
+
+Premium is judged by whether its details survive the transition to a phone, because that is where imprecision becomes visible.
+
+Alignment is the first casualty and the most damaging one. An icon a pixel off its label, inconsistent padding between stacked cards, or a border that no longer meets its neighbour reads as carelessness in a language whose entire claim is care. Re-verify alignment at handheld width rather than trusting that a desktop-correct component stayed correct.
+
+Radius must stay proportionally consistent. Premium's craftsmanship shows in every corner following the same rule; a fixed radius applied to elements that changed size no longer does.
+
+Spacing stays generous. Compressing whitespace to fit more above the fold trades away the calm this language depends on for a metric it does not optimize for.
+
+Interaction feedback must be re-expressed for touch. Premium's polish lives substantially in hover states, which do not exist on a phone. Those refinements need an equivalent in press feedback and transition quality, or mobile loses the thing that distinguishes the language.
+
+Photography needs mobile crops that preserve the material detail the desktop image was chosen for. Scaling a wide product shot down usually loses exactly the texture that communicated quality.
+
+---
+
+# Token Contract
+
+Premium must own the following rather than inherit them.
+
+* **Radius** — a moderate value, chosen deliberately and applied without exception. Premium's craft is visible in the fact that every corner follows one rule precisely, which means the value must be a decision rather than an inheritance.
+* **Shadow** — soft but perceptible, giving components physical presence. This is measurably more present than Luxury's near-absent elevation, and it is one of the few places the two languages differ in a token rather than in degree.
+* **Motion duration and easing** — carefully tuned curves. Premium is explicitly a language where motion demonstrates engineering quality, so a generic easing default undercuts the claim.
+* **Spacing scale** — generous, with consistent steps.
+* **Type scale** — balanced proportion with tuned line height and optical sizing.
+* **Border** — hairline weight, defined precisely.
+
+---
+
 # Suitable Architectures
 
 - Corporate
@@ -112,6 +159,6 @@ A Premium page should hold up under scrutiny at every level of zoom — the over
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid visual excess, unnecessary effects, or design decisions that compete for attention.

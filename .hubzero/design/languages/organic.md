@@ -8,7 +8,23 @@ Trust should emerge through empathy and simplicity.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Comfort** — nothing may make the interface feel urgent or pressured.
+2. **Corner and form** — soft geometry is the most visible commitment.
+3. **Colour** — natural, warm, low-saturation.
+4. **Spacing** — generous and relaxed in rhythm.
+5. **Photography** — natural light and real material.
+6. **Motion** — unhurried, never snapping.
+7. **Typography** — comfortable to read at length.
+
+Where efficiency and ease conflict, Organic chooses ease. A denser layout that would let a visitor accomplish something faster is the wrong answer here, which is precisely what separates Organic from Industrial and Technical.
+
+---
+
+# Signature Traits
 
 - Human-centered
 - Calm
@@ -26,7 +42,7 @@ Hierarchy should support a relaxed reading pace — generous line height and mod
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Colors should feel inspired by nature and real-world materials.
 
@@ -106,6 +122,36 @@ Visual rhythm in Organic design should feel like a walk through a welcoming spac
 
 ---
 
+# Responsive Behavior
+
+Organic's promise is ease, and a crowded mobile layout breaks that promise faster than any other failure available to it.
+
+Protect spacing above all else. When something must give at handheld width, reduce the number of elements on screen rather than the room between them. A dense Organic layout is a contradiction; a sparse one that requires more scrolling is not.
+
+Corner radius should scale with element size rather than staying fixed. A radius that reads as softly rounded on a wide card can read as nearly square on a narrow one, quietly removing the language's most identifying trait exactly where most visitors will see it.
+
+Photography benefits from taller, more immersive crops on mobile — natural light and material texture read better in a portrait frame than in a letterboxed desktop crop scaled down.
+
+Reading measure matters more here than in most languages, because Organic layouts tend toward longer prose. Verify line length at handheld width specifically rather than assuming the desktop measure scales.
+
+Motion stays unhurried. Shortening durations to feel snappier on mobile contradicts the Motion Language; if motion feels slow on a phone, reduce how much of it there is rather than how long it takes.
+
+---
+
+# Token Contract
+
+Organic must own the following rather than inherit them.
+
+* **Radius** — generously rounded across the scale, and larger at the upper end than a general-purpose default provides. This is the language's most identifying value; inheriting a moderate default produces something closer to Modern.
+* **Colour** — a warm, natural, low-saturation palette. An inherited cool neutral scale contradicts the language completely while looking perfectly acceptable in isolation.
+* **Spacing scale** — more generous than a neutral default.
+* **Motion easing** — soft curves that accelerate and decelerate gradually. A standard easing curve is usually too abrupt at both ends.
+* **Shadow** — soft and diffuse where present, suggesting natural light rather than elevation.
+
+Warm and desaturated palettes sit closest to the accessibility threshold. Verify every foreground value against every surface it appears on — cream and parchment grounds especially — per the Contrast Contract in `.hubzero/design/principles.md`. A muted tone that reads as obviously legible in isolation is exactly the case that fails measurement.
+
+---
+
 # Suitable Architectures
 
 - Healthcare
@@ -116,6 +162,6 @@ Visual rhythm in Organic design should feel like a walk through a welcoming spac
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid harsh geometry, excessive contrast, aggressive motion, or highly technical aesthetics.

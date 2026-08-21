@@ -8,7 +8,23 @@ Historical influence should feel intentional rather than theatrical.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Contemporary usability** — the era reference never costs the visitor anything.
+2. **Period vocabulary** — colour, type, and shape carry the reference.
+3. **Typography** — the most legible carrier of a period.
+4. **Colour** — a palette the era would recognize.
+5. **Corner and border** — consistent with the chosen era's shapes.
+6. **Spacing** — modern and readable regardless of era.
+7. **Motion** — restrained, a hint rather than a costume.
+
+Retro is defined by a constraint no other language carries: **it references a period without inheriting that period's failures.** Every conflict resolves toward the modern standard. If a decision would frustrate a contemporary visitor, the reference has gone too far — which is what separates a period-informed system from a costume.
+
+---
+
+# Signature Traits
 
 - Nostalgia with purpose
 - Personality over perfection
@@ -26,7 +42,7 @@ Sacrificing readability for authenticity is never acceptable. A single well-chos
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Colors should evoke a specific historical mood rather than imitate it literally.
 
@@ -106,6 +122,36 @@ Sections should still compose with fully modern clarity: clear hierarchy, predic
 
 ---
 
+# Responsive Behavior
+
+Retro faces a problem no other language has: the era it references had no handheld viewport, so there is no period precedent to draw on.
+
+Resolve this by keeping the **vocabulary** and abandoning the **layout**. Colour, type, shape, and ornament carry the reference at handheld width; the composition itself is contemporary. A mid-century grid reproduced literally on a phone reads as a broken layout, not as a reference.
+
+Period ornament must be edited rather than scaled. Decorative rules, borders, and marks that framed a wide composition become clutter in a narrow one. Choose which elements carry the reference on mobile and remove the rest, rather than shrinking all of them into illegibility.
+
+Type is the most reliable carrier. A period typeface at a comfortable mobile size communicates the era more effectively than any amount of preserved ornament, and costs nothing in usability.
+
+Navigation is entirely contemporary. There is no era-appropriate mobile navigation pattern to reference, and inventing one produces a novelty interaction rather than a period one.
+
+Spacing stays modern and generous, per the Spacing Language — historical source material was often dense, and reproducing that density is the most common way Retro becomes unusable.
+
+---
+
+# Token Contract
+
+Retro must own the following rather than inherit them.
+
+* **Colour** — a period-specific palette. This is the language's primary carrier and has no meaningful shared default; an inherited neutral scale removes the reference entirely.
+* **Type scale and family** — chosen for the era. Typography does more work here than in almost any other language.
+* **Radius** — set by the referenced era's shape vocabulary, which varies substantially between periods. A general-purpose default belongs to no era and signals none.
+* **Border** — weight and style consistent with the period's graphic conventions.
+* **Motion easing** — a slightly characterful curve. A neutral standard curve is acceptable in many languages and specifically contradicts this one's Motion Language.
+
+Record which era the blueprint references alongside these tokens. Without it, a later contributor cannot tell whether a value is a period decision or a mistake, and the system erodes into generic decoration.
+
+---
+
 # Suitable Architectures
 
 - Portfolio
@@ -116,6 +162,6 @@ Sections should still compose with fully modern clarity: clear hierarchy, predic
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid excessive decorative effects, artificial aging, or sacrificing usability for stylistic authenticity.

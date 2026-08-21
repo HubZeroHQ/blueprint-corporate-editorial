@@ -8,7 +8,22 @@ Every element should feel direct and intentional.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Structural honesty** — the interface must not disguise what it is.
+2. **Typography** — scale and weight carry the page.
+3. **Border and corner** — structure is drawn, not implied.
+4. **Spacing** — tight and grid-derived.
+5. **Colour** — flat, minimal, functional.
+6. **Motion** — last, and usually absent.
+
+If a decision would make the interface more comfortable at the cost of being less honest about its structure, Brutalist chooses honesty. This is the inverse of every restraint-led language, which would resolve the same conflict toward comfort.
+
+---
+
+# Signature Traits
 
 - Honesty over decoration
 - Bold typography
@@ -18,7 +33,7 @@ Every element should feel direct and intentional.
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Color should support hierarchy through contrast.
 
@@ -86,6 +101,31 @@ A Brutalist page reads as a sequence of blunt, high-contrast blocks rather than 
 
 ---
 
+# Responsive Behavior
+
+Brutalist recomposes more honestly than most languages, because it has no decorative layer to lose.
+
+At handheld width the grid becomes single-column and its structure becomes *more* visible, not less — rules and borders that separated columns on desktop become the separators between stacked blocks. Type scale stays aggressive; a display heading that dominated the desktop viewport should still dominate the phone. Reducing it to a comfortable size is the most common way a Brutalist blueprint quietly becomes a generic one on mobile.
+
+Navigation is a full-screen inversion rather than a floating drawer — a hard state change, consistent with the language's refusal to layer soft surfaces over content.
+
+Touch targets meet accessibility minimums through padding, never through added corner radius.
+
+---
+
+# Token Contract
+
+Brutalist must own the following rather than inherit them. Any of these left at a shared default is a failure to adopt the language.
+
+* **Radius** — every radius token is `0`. This is the language's single most identifying value, and inheriting a rounded default contradicts the Corner Language outright.
+* **Motion duration and easing** — instant or near-instant, with linear or stepped easing. An inherited eased curve implies a gentleness this language rejects.
+* **Shadow** — no elevation tokens. Depth is expressed by border and colour, never by shadow.
+* **Border width** — heavier than a typical hairline, and defined explicitly, since borders carry the structural work here.
+
+Because Brutalist zeroes several shared tokens, collapse the token itself rather than overriding it per component. A single categorical value at the design-language layer is what keeps every component consistent without any of them knowing about the rule.
+
+---
+
 # Suitable Architectures
 
 - Portfolio
@@ -95,6 +135,6 @@ A Brutalist page reads as a sequence of blunt, high-contrast blocks rather than 
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid unnecessary polish, soft aesthetics, decorative gradients, or excessive animation.

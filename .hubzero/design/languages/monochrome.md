@@ -8,7 +8,22 @@ Visual interest should emerge from structure rather than decoration.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Colour discipline** — the absence of colour is the language; nothing overrides it.
+2. **Typography** — carries hierarchy that colour would carry elsewhere.
+3. **Spacing** — the primary separator, standing in for colour.
+4. **Contrast** — tonal relationships do the work of a palette.
+5. **Border and corner** — quiet and uniform.
+6. **Motion** — subtle, never colour-driven.
+
+The defining test: when something needs emphasis, Monochrome reaches for weight, scale, tone, or space — never for a colour it has agreed not to have. Reintroducing an accent to solve a hierarchy problem is not a compromise; it is abandoning the language.
+
+---
+
+# Signature Traits
 
 - Restraint over decoration
 - Contrast over color
@@ -26,7 +41,7 @@ Rhythm and spacing still matter, but weight and size contrast are Monochrome's p
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Color should be largely absent.
 
@@ -108,6 +123,34 @@ The page should feel deliberately composed, not simply colorless.
 
 ---
 
+# Responsive Behavior
+
+Monochrome depends on generous spacing to replace the separation colour would otherwise provide, which makes it the language most damaged by a compressed mobile layout.
+
+Protect the spacing scale. Reducing vertical rhythm proportionally at handheld width removes the exact mechanism the language uses for hierarchy, and produces a flat grey page. Compress margins before compressing the space between sections.
+
+Because status and meaning cannot be carried by colour here, they must be carried by label, position, or weight — and those must survive the narrower viewport. A state indicator that relied on adjacency to its label on desktop needs an explicit label on mobile.
+
+Tonal contrast must be re-verified at handheld width against ambient conditions. A grey separation that reads clearly on a calibrated desktop display can disappear on a phone in daylight. Verify the tonal steps that carry structural meaning, not only the ones carrying text.
+
+Navigation is a tonal shift rather than a coloured surface — the same discipline that governs the rest of the language.
+
+---
+
+# Token Contract
+
+Monochrome must own the following rather than inherit them.
+
+* **Colour** — an explicit tonal scale with deliberate, verified steps. This is the whole language, and it is the token set most likely to be inherited by accident. An inherited palette with hue in it is not a monochrome system.
+* **Spacing scale** — more generous than a neutral default, because spacing carries the separation work.
+* **Radius** — one value, applied uniformly. Monochrome must not reach for a decorative radius to add back warmth it deliberately removed.
+* **Border** — defined tonally, since borders are a primary structural device here.
+* **Shadow** — either absent or expressed as pure tonal separation; a tinted shadow reintroduces colour through the back door.
+
+Verify every tonal step against the Contrast Contract in `.hubzero/design/principles.md`. A grayscale system has no colour cues to fall back on, so a step that fails contrast fails completely rather than partially.
+
+---
+
 # Suitable Architectures
 
 - Portfolio
@@ -118,6 +161,6 @@ The page should feel deliberately composed, not simply colorless.
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid decorative gradients, excessive color, playful visual effects, or unnecessary ornamentation.

@@ -98,6 +98,18 @@ Users should receive exactly what search results promise.
 
 ---
 
+# SEO Derives From the Content Model
+
+Metadata, structured data, sitemaps, breadcrumbs, and internal links are **outputs of the content model**, not a parallel system maintained beside it.
+
+A hand-maintained sitemap goes stale the first time content is added. A separately-authored structured-data block eventually describes something the page no longer says. A navigation array and a content collection disagree about what exists. None of these failures announce themselves — they are found by search engines and visitors, not by builds.
+
+Every SEO surface should derive from the same canonical records the page renders. See `.hubzero/content/principles.md` — Derivation, Never Restatement.
+
+The test: add a content record, and see what fails to notice. Anything requiring a second edit was a restatement.
+
+---
+
 # Structured Data Should Reflect Reality
 
 Structured data exists to describe real information.
@@ -105,6 +117,32 @@ Structured data exists to describe real information.
 Only publish structured data that accurately represents the page.
 
 Never fabricate ratings, reviews, products, organizations, events, or other structured information.
+
+Two consequences follow, and both are recurring failures.
+
+**Structured data must be assembled from the same records rendered to the visitor.** A separate SEO content model drifts from the visible page and invites claims the page does not support. If the markup says something the visitor cannot see, one of the two is wrong.
+
+**Describe only what the implementation can substantiate.** A blueprint depicting a fictional company must not publish ratings, review counts, attendance figures, availability, or transaction volumes it does not have. This is the same standard that governs generated content — see `.hubzero/experience/content.md` — Fictional Content Policy — applied to machine-readable claims, where it matters more because the claim is repeated in search results without the page's surrounding context.
+
+---
+
+# Indexability Is a Decision
+
+Not every URL a site can produce deserves to exist in an index.
+
+Filtered, sorted, paginated, and parameterized URLs are generated combinatorially, and several architectures in this library can produce effectively unbounded numbers of them. Left unmanaged, they compete with the pages that should rank, consume crawl budget, and dilute a site's topical clarity.
+
+For every architecture, decide explicitly:
+
+* Which pages are **durable ranking assets** and should be indexed.
+* Which are **ephemeral or near-duplicate** and should be excluded or canonicalized to their parent.
+* Which filter combinations have genuine search demand and warrant their own indexable page.
+
+Sitemaps contain only canonical, indexable URLs — and, being derived from the content model, they cannot list something that no longer exists.
+
+This decision is architecture-specific and is stated in each category's SEO document. Marketplace, Directory, Ecommerce, and Booking each carry a large generated surface and each resolves it differently.
+
+**Where pages are generated programmatically, apply a content threshold.** A page created because a combination is possible, rather than because there is something on it, is thin content regardless of how the combination arose.
 
 ---
 

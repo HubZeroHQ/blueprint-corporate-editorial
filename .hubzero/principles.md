@@ -2,7 +2,7 @@
 
 This document is the canonical source of HubZero's engineering principles.
 
-Every other document inside `.hubzero` assumes these principles rather than restating them. `architecture/`, `seo/`, and `design/` describe domain-specific knowledge. `agents/` describes process. This document describes the reasoning that should guide both.
+Every other document inside `.hubzero` assumes these principles rather than restating them. `architecture/`, `content/`, `design/`, and `seo/` describe the four knowledge systems. `rendering.md` describes the server/browser boundary. `agents/` describes process. This document describes the reasoning that should guide all of them.
 
 If a decision is not covered by domain-specific guidance, fall back to these principles.
 
@@ -56,6 +56,8 @@ Branding, content, navigation, and business-specific values belong in configurat
 
 A blueprint should remain personalizable without editing implementation code.
 
+This extends beyond avoiding hardcoded strings. Canonical content records are the source every dependent system reads from — routes, metadata, sitemap, structured data, navigation, and search all derive from them rather than restating them. See `.hubzero/content/principles.md`.
+
 ---
 
 # Maintainability Over Cleverness
@@ -81,6 +83,10 @@ Accessibility is not a review-stage checklist item. It is a property of correct 
 Semantic HTML, keyboard navigation, focus management, and sufficient contrast should exist because the implementation was built correctly, not because they were added afterward.
 
 This extends to every route a framework generates on a project's behalf, not only the routes explicitly built — loading states, error boundaries, and not-found pages. A loading state needs an accessible live region, not just a visual spinner. An error boundary needs a heading hierarchy and keyboard-reachable recovery action, not just a caught exception. These routes are reached by real visitors and deserve the same rigor as any page that was hand-built.
+
+Semantic structure must be configurable at the point of use. A reusable card, row, or section cannot know what heading level is correct where it happens to be placed — that depends on the document around it, which the component cannot see. Repeatable components should accept their semantic level from the caller rather than hardcoding one, so a correct document outline survives arbitrary nesting instead of drifting per route.
+
+Accessibility is also a property of what renders before JavaScript executes. Content that is unreachable without scripting, or that depends on motion a visitor has asked not to see, has failed this principle regardless of how correct its markup is. See `.hubzero/rendering.md` — Progressive Enhancement.
 
 ---
 
@@ -112,11 +118,13 @@ Relatedly, be deliberate about stacking context. `transform`, `filter`, and `bac
 
 # Predictable Client/Server Rendering
 
-A recurring engineering failure across HubZero blueprints is content that differs between the server-rendered markup and the client's first render — a timestamp formatted differently, a value read from `localStorage` or `window` before the client has mounted, a random or generated ID that differs between the two renders, or content that depends on the visitor's timezone or locale-dependent formatting.
+A recurring engineering failure across HubZero blueprints is content that differs between the server-rendered markup and the client's first render — a timestamp formatted differently, a value read from storage or the window before the client has mounted, a generated identifier that differs between the two renders, or content that depends on the visitor's timezone or locale.
 
 The first client render must produce markup that matches what the server produced. Anything that can only be known on the client — device APIs, stored preferences, locale, viewport size — belongs in a state update that runs after mount, not in the value used for the initial render. This is a property of correct implementation, not a runtime warning to patch afterward.
 
 This principle is framework-agnostic. Every modern framework that renders on the server and hands off to the client is susceptible to the same failure mode, and the fix is the same regardless of which framework is in use.
+
+**`.hubzero/rendering.md` is the full contract**, covering the complete hazard register, runtime boundaries and client islands, and progressive enhancement. Consult it before implementing anything that reads from the browser.
 
 ---
 
@@ -124,9 +132,23 @@ This principle is framework-agnostic. Every modern framework that renders on the
 
 Every HubZero blueprint is a reference implementation of a fictional company, not a live product with a real backend. A recurring failure is dressing up that gap instead of being honest about it — a contact form that silently discards what it collects, a login screen that accepts any input, a dashboard populated with numbers that reset on refresh.
 
-When functionality would require a backend the blueprint does not have, say so rather than simulating it: a `mailto:` link instead of a form handler with nowhere to send its data, an honestly labeled limitation instead of fake persistence. A believable static experience is more trustworthy than a dynamic-looking one that breaks the moment a visitor tests it.
+When functionality would require a backend the blueprint does not have, say so rather than simulating it: a protocol link that genuinely works instead of a form handler with nowhere to send its data, an honestly labeled limitation instead of fake persistence. A believable static experience is more trustworthy than a dynamic-looking one that breaks the moment a visitor tests it.
+
+**Disclose at the point of interaction, not only in the README.** A limitation documented in a file the visitor will never open has not been disclosed to them. The honest statement belongs where the visitor is about to act — beside the form, on the checkout step, within the interface element itself — in the blueprint's own voice rather than as an apologetic footnote. A visitor who understands what will happen before they act is never misled; one who discovers it afterward has been.
 
 This governs implementation choices the same way it governs generated content and photography — see `.hubzero/experience/content.md`.
+
+---
+
+# Native Before Custom
+
+Prefer the platform's own elements over reimplementing their behavior.
+
+Native elements arrive working. Keyboard interaction, focus management, assistive-technology semantics, and platform conventions are already correct, already tested across browsers, and already functional before any script executes.
+
+Across HubZero blueprints, native solutions have repeatedly proven both more accessible and substantially smaller than the custom equivalents they replaced — for disclosure and expansion, tabular comparison, dates and times, addresses, navigation, and dialogs.
+
+Build a custom implementation when the native element genuinely cannot express the requirement. That is a real and defensible reason. "It was easier to style" is not — a custom control that reimplements accessibility from scratch has traded a styling problem for a correctness problem, and only one of those is visible in review.
 
 ---
 

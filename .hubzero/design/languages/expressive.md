@@ -8,7 +8,22 @@ Originality should emerge from thoughtful design rather than novelty alone.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Form and shape vocabulary** — the brand's chosen shapes are the identity.
+2. **Colour** — bold, committed, and part of the signature.
+3. **Motion** — authored specifically for this brand.
+4. **Typography** — expressive, but subordinate to the shape system.
+5. **Spacing** — varied deliberately for pacing.
+6. **Border, corner, shadow** — whatever the shape vocabulary requires.
+
+Expressive permits more variation than any other language except Maximalist, which makes its hierarchy unusually important: **variation must be traceable to a decision.** When a choice cannot be justified as part of the brand's shape vocabulary, it is inconsistency rather than expression, and the hierarchy above is how that distinction gets made.
+
+---
+
+# Signature Traits
 
 - Personality over convention
 - Creative confidence
@@ -18,7 +33,7 @@ Originality should emerge from thoughtful design rather than novelty alone.
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Color should reinforce personality and emotion.
 
@@ -86,6 +101,34 @@ Expressive pages are the most willing of the energetic languages to break a conv
 
 ---
 
+# Responsive Behavior
+
+Expressive composition is where this language most often collapses into a generic stack, because the desktop layout's deliberate asymmetry has nowhere obvious to go.
+
+Recompose rather than reflow. A layout whose identity came from overlapping elements, broken grids, or off-axis placement should find a *handheld* expression of the same idea — a vertical sequence with deliberate pacing and its own moments of asymmetry — not a centred single column with the personality removed.
+
+The shape vocabulary must survive at small size. Shapes that read as a signature at desktop scale can become ambiguous marks on a phone; scale them relative to the viewport rather than proportionally, and drop the ones that stop reading rather than shrinking them into noise.
+
+Type scale should stay expressive. A display treatment reduced to a safe mobile size is the single most common way an Expressive blueprint becomes indistinguishable from a Modern one.
+
+Motion that carried personality on desktop must have a reduced-motion composition that still expresses the brand through colour, shape, and state rather than movement.
+
+---
+
+# Token Contract
+
+Expressive must own the following rather than inherit them.
+
+* **Radius** — defined by the brand's shape vocabulary, and permitted to differ per component role where that variation is the signature. Define each role explicitly rather than leaving any at a shared default.
+* **Colour** — a committed palette with genuine saturation. An inherited neutral scale produces a restrained language wearing one accent.
+* **Motion duration and easing** — authored curves. Expressive is the language most explicitly required to have its own easing; a shared standard curve directly contradicts the Motion Language.
+* **Spacing scale** — with deliberate large steps available, since pacing and emphasis depend on the range between them.
+* **Type scale** — a wide range with a genuinely dramatic display end.
+
+Because Expressive permits per-role variation, document the shape vocabulary alongside the tokens. A radius that differs by component without a recorded reason is indistinguishable from an error six months later.
+
+---
+
 # Suitable Architectures
 
 - Creative Agencies
@@ -96,6 +139,6 @@ Expressive pages are the most willing of the energetic languages to break a conv
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid experimentation that harms readability, accessibility, performance, or long-term maintainability.

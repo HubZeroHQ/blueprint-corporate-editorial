@@ -1,6 +1,7 @@
 import { Page, Section, Container } from "@/components/layout";
 import { Typography, Button, Card, CardImage, CardHeader, CardTitle, Reveal } from "@/components/ui";
 import Image from "next/image";
+import { services, work } from "@/config/content";
 
 export default function Home() {
   return (
@@ -63,15 +64,11 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-              {[
-                { title: "Strategic Advisory", desc: "Aligning digital initiatives with long-term business objectives through rigorous analysis and planning." },
-                { title: "Systems Engineering", desc: "Architecting resilient, scalable platforms designed to handle complexity without introducing fragility." },
-                { title: "Experience Design", desc: "Crafting interfaces that communicate clearly, build trust, and simplify complicated interactions." },
-              ].map((service, i) => (
+              {services.map((service, i) => (
                 <div key={i} className="flex flex-col gap-4 group">
                   <div className="h-[1px] w-full bg-stone-200 group-hover:bg-stone-900 transition-colors duration-500" />
                   <Typography variant="h4">{service.title}</Typography>
-                  <Typography variant="body" className="text-stone-600">{service.desc}</Typography>
+                  <Typography variant="body" className="text-stone-600">{service.summary}</Typography>
                 </div>
               ))}
             </div>
@@ -94,21 +91,18 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-              {[
-                { client: "Vanguard Logistics", category: "Systems Engineering", title: "Modernizing a global supply chain network.", image: "/images/placeholders/work-logistics.jpg" },
-                { client: "Oakhaven Health", category: "Experience Design", title: "Unifying clinical data across 40 hospitals.", image: "/images/placeholders/work-healthcare.jpg" }
-              ].map((work, i) => (
-                <Card key={i} className="bg-transparent gap-6 group">
+              {work.slice(0, 2).map((item) => (
+                <Card key={item.slug} className="bg-transparent gap-6 group">
                   <CardImage className="aspect-[4/5] md:aspect-[4/3] bg-stone-800">
-                    <Image src={work.image} alt={work.title} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    <Image src={item.image} alt="" fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
                   </CardImage>
                   <CardHeader className="space-y-3">
                     <div className="flex items-center gap-3 text-stone-400 text-sm font-medium tracking-wide">
-                      <span>{work.client}</span>
+                      <span>{item.client}</span>
                       <span className="w-1 h-1 rounded-full bg-stone-600" />
-                      <span>{work.category}</span>
+                      <span>{item.category}</span>
                     </div>
-                    <CardTitle className="text-stone-50 text-3xl">{work.title}</CardTitle>
+                    <CardTitle className="text-stone-50 text-3xl">{item.title}</CardTitle>
                   </CardHeader>
                 </Card>
               ))}

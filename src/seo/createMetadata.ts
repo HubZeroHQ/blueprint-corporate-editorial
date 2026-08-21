@@ -13,7 +13,7 @@ interface CreateMetadataOptions {
 export function createMetadata({
   title,
   description,
-  image = "/og.png",
+  image = "/brand/og-meridian.png",
   canonical,
   keywords = [],
 }: CreateMetadataOptions = {}): Metadata {
@@ -29,7 +29,7 @@ export function createMetadata({
     : seoDefaults.url;
 
   return {
-    title: pageTitle,
+    title,
 
     description: pageDescription,
 

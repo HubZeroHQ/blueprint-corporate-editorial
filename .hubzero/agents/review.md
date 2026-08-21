@@ -110,6 +110,50 @@ Prefer solutions another engineer can quickly understand and confidently extend.
 
 ---
 
+# Verify Infrastructure Is Wired
+
+**A file existing is not the same as a file running.**
+
+Infrastructure under `src/seo/`, `src/providers/`, or anywhere else is only real once something in the application actually imports or mounts it. A correct, complete, well-written metadata factory that no route calls produces exactly the same result as no metadata factory at all — except that a reviewer skimming the directory will assume it works.
+
+Verify explicitly:
+
+* Metadata generation is called by the routes that need it.
+* Robots and sitemap endpoints are actually served, not merely defined.
+* Providers are mounted, not just exported.
+* Structured data components are rendered on the pages they describe.
+* Shared utilities are used rather than shadowed by local reimplementations.
+
+Unwired infrastructure is worse than absent infrastructure, because it reads as done.
+
+---
+
+# Verify Content Derivation
+
+Any list that could have been derived from canonical content records, and was written out instead, is a finding — even where it is currently accurate.
+
+Check that routes, metadata, sitemap entries, structured data, breadcrumbs, navigation, related content, search indexes, filter options, and counts all derive from the content model. See `.hubzero/content/principles.md` — Derivation, Never Restatement.
+
+The test: add a content record and see what fails to notice. Anything requiring a second edit was a restatement, and it will drift.
+
+Also verify referential integrity — slug references resolve, and unresolvable ones fail loudly or degrade deliberately rather than rendering as a broken page.
+
+---
+
+# Verify Rendering and Runtime
+
+Review against `.hubzero/rendering.md`, not only against whether the page currently looks right.
+
+* **Determinism** — walk the hazard register. Time, locale, timezone, randomness, viewport, media queries, storage, browser APIs, observers, and animation state each handled deliberately.
+* **Runtime boundaries** — client islands are declared and bounded rather than accumulated. Data crossing into an island is summarized rather than passed whole.
+* **Progressive enhancement** — essential content is present and readable before JavaScript runs. Nothing starts in a hidden state it can only escape via script. Above-the-fold content is stable in the server's output.
+* **Reduced motion** — a complete alternative composition, not merely animation disabled.
+* **Transient state** — drawers, panels, and overlays resolve correctly under browser history navigation.
+
+These failures are silent. The build passes, the page looks correct to whoever built it, and the visitor who experiences the failure is not in the room.
+
+---
+
 # Review Consistency
 
 The project should feel cohesive.
@@ -180,7 +224,6 @@ The release checklist is the final quality gate for every HubZero Blueprint.
 
 Do not approve an implementation that has not successfully completed the release process.
 
----
 
 # Final Question
 

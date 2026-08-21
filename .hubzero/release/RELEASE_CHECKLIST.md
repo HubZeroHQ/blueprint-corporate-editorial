@@ -21,6 +21,8 @@ This checklist defines the minimum quality standard required before any HubZero 
 
 A blueprint is considered **production-ready** only when every applicable item has been completed successfully.
 
+Where a reusable skill assists this process, it does not replace manual verification of any item. The Skills contract is defined once, in `.hubzero/agents/AGENTS.md`.
+
 ---
 
 # 1. Repository
@@ -52,8 +54,26 @@ A blueprint is considered **production-ready** only when every applicable item h
 - [ ] `.hubzero` remains unchanged.
 - [ ] Architecture guidance has been followed.
 - [ ] Design language has been followed.
+- [ ] Content contract has been followed (`.hubzero/content/principles.md`).
+- [ ] Rendering and runtime contract has been followed (`.hubzero/rendering.md`).
 - [ ] SEO guidance has been followed.
 - [ ] Engineering guidance has been followed.
+
+## Canonical Identity
+
+- [ ] Architecture `id` matches a row in `.hubzero/architecture/REGISTRY.md`.
+- [ ] Design language `id` matches a row in `.hubzero/design/languages/REGISTRY.md`.
+- [ ] No alias is used in place of a canonical `id` (for example `agency` where `services` is canonical).
+- [ ] Where the architecture is a profile, its parent's document was applied.
+- [ ] Composed architectures and carried modules are named explicitly.
+
+## Infrastructure Wiring
+
+- [ ] Metadata generation is called by the routes that need it.
+- [ ] Robots and sitemap endpoints are actually served, not merely defined.
+- [ ] Providers are mounted, not just exported.
+- [ ] Structured data is rendered on the pages it describes.
+- [ ] No shared utility is shadowed by a local reimplementation.
 
 ---
 
@@ -88,6 +108,25 @@ Verify consistency across the entire blueprint.
 - [ ] Responsive behavior
 - [ ] Motion consistency
 
+## Design Language Contract
+
+See `.hubzero/design/principles.md` and the active language document.
+
+- [ ] All eleven subsystems implemented.
+- [ ] Decision Hierarchy applied where subsystems conflicted.
+- [ ] Anti-Patterns checked against the implementation.
+- [ ] Responsive Behavior applied per the active language.
+- [ ] **Token Contract satisfied** — every token the language names is owned by the blueprint.
+- [ ] **The token file is not byte-identical to Blueprint Base's.** Inherited values belong to no design language.
+- [ ] One source of truth per token; no value defined in two competing places.
+- [ ] The implementation would not be mistaken for the language's nearest neighbours in the registry.
+
+## Contrast
+
+- [ ] Every foreground value verified against every surface it appears on, not against white alone.
+- [ ] Focus indicators verified against the darkest and busiest surfaces on the site.
+- [ ] Where a dark appearance exists, verified as an independently authored palette.
+
 ---
 
 # 5. Content Architecture
@@ -105,6 +144,23 @@ Verify content remains reusable.
 - [ ] Images configurable.
 
 Avoid embedding large amounts of content directly inside components whenever practical.
+
+## Content Derivation
+
+See `.hubzero/content/principles.md`.
+
+- [ ] Routes and static parameters derive from content records.
+- [ ] Page metadata derives from the same records.
+- [ ] Sitemap derives from content rather than being hand-maintained.
+- [ ] Structured data derives from the records rendered on the page.
+- [ ] Breadcrumbs and page hierarchy derive from one structure.
+- [ ] Navigation derives from content and from declared module names.
+- [ ] Related content derives from relationships, not hand-maintained lists.
+- [ ] Search index and filter facets derive from content.
+- [ ] Counts and summaries are computed rather than written out.
+- [ ] Referential integrity verified — slug references resolve, or fail deliberately.
+- [ ] **Adding a content record requires no second edit anywhere.**
+- [ ] Temporal state is authored rather than derived from the current clock.
 
 ## Editorial Consistency
 
@@ -174,6 +230,8 @@ Verify accessibility.
 - [ ] Reduced motion respected.
 - [ ] Meaningful alt text.
 - [ ] Framework lifecycle routes (loading, error, not-found) are accessible.
+- [ ] Repeatable components accept their semantic heading level from the caller.
+- [ ] Native elements used in preference to custom reimplementations.
 
 Target WCAG AA compliance.
 
@@ -198,25 +256,24 @@ Reuse Blueprint Base infrastructure.
 
 # 10. Pages
 
-Verify every page required by the selected Architecture category's complete user journey (see `.hubzero/architecture/principles.md`).
+The required pages are **the Essential Pages of the selected architecture, plus the pages of every module the blueprint carries.**
 
-The list below is the common baseline for Corporate and Services-style blueprints. Other architecture categories replace it with their own required pages — an SaaS blueprint verifies Pricing and Dashboard rather than Work and Careers, for example.
+There is no universal page list. Read the requirement from:
 
-- [ ] Home
-- [ ] About
-- [ ] Services
-- [ ] Service Detail
-- [ ] Work
-- [ ] Work Detail
-- [ ] Industries
-- [ ] Team
-- [ ] Careers
-- [ ] Blog
-- [ ] Blog Article
-- [ ] Contact
-- [ ] Privacy
-- [ ] Terms
-- [ ] 404
+- The architecture's *Essential Pages* section — `.hubzero/architecture/<id>.md`
+- Each carried module — `.hubzero/architecture/modules.md`
+- Any composed architecture's *Essential Pages* — see the blueprint's registry entry
+
+Then verify:
+
+- [ ] Every page in the architecture's Essential Pages exists and is complete.
+- [ ] Every page required by each carried module exists and is complete.
+- [ ] Where architectures are composed, the composed architecture's pages exist.
+- [ ] Index-and-detail pairings are genuinely paired — every listed record has its own complete page, with its own content.
+- [ ] The architecture's complete user journey connects these pages, not merely that each exists (see `.hubzero/architecture/principles.md` — Complete User Journeys).
+- [ ] Framework lifecycle routes exist and are complete: loading, error, not-found.
+
+The most common failure is an index listing several distinct records where the detail route renders one shared body. Verify each detail page individually rather than confirming the route resolves. See `.hubzero/content/principles.md` — Content Depth Is Authored.
 
 ---
 
@@ -249,9 +306,53 @@ Verify every route. A route that only passes when hard-refreshed, and never when
 - [ ] Console inspected at first load, after client-side navigation to every route, and after returning — not only once at the start of the check.
 - [ ] No console errors or warnings at any of those points.
 
+## Back and Forward Navigation
+
+- [ ] Browser back and forward reach the expected route.
+- [ ] Transient UI — drawers, panels, disclosures, overlays — resolves correctly after history navigation.
+- [ ] Filter, search, and view state held in the URL survives back, forward, and refresh.
+
+## Progressive Enhancement
+
+See `.hubzero/rendering.md`.
+
+- [ ] With JavaScript disabled, every piece of essential content is visible on every route.
+- [ ] No content starts in a hidden state it can only escape via script.
+- [ ] Above-the-fold content is present and stable in the server's output.
+- [ ] Maps, galleries, and observer-driven surfaces have a working non-scripted fallback.
+
+## Reduced Motion
+
+- [ ] Verified with reduced motion preferred.
+- [ ] The result is a complete alternative composition, not merely animation disabled.
+- [ ] No content becomes unreachable or invisible when motion is removed.
+
+## Interaction Surfaces
+
+- [ ] Forms behave as documented, including their honest limitations.
+- [ ] Filters and search verified, including their empty results.
+- [ ] Galleries, carousels, drawers, and overlays verified by keyboard and by touch.
+- [ ] Overlays and floating navigation verified against their actual stacking context.
+- [ ] Every interactive surface is reachable and operable by keyboard, with focus restored after dismissal.
+
+## Responsive States
+
+- [ ] Verified at real handheld widths on a touch device, not only in a narrowed desktop window.
+- [ ] Every hover-revealed affordance has a working touch equivalent.
+- [ ] No horizontal document overflow at any width.
+
+## User Journeys
+
+Verify the architecture's complete journey end to end, not only that its routes exist. See `.hubzero/architecture/principles.md` — Complete User Journeys.
+
+- [ ] Landing → navigation → content → interaction → conversion completes.
+- [ ] The journey survives a refresh at each step.
+- [ ] The journey survives back-navigation at each step.
+- [ ] The conversion terminus states its honest limitations at the point of action.
+
 ## General
 
-- [ ] Verified in multiple browsers.
+- [ ] Verified in multiple browsers, named in the release record.
 - [ ] Images load correctly.
 
 ---
@@ -273,6 +374,10 @@ Confirm:
 - [ ] Lint passes.
 - [ ] TypeScript passes.
 - [ ] Production build passes.
+
+Runtime verification is performed against the **production build**, not only the development server. Hot reload introduces transient states absent from an optimized build, and conceals others.
+
+- [ ] Runtime verification performed against the production build.
 
 ---
 
@@ -315,13 +420,42 @@ Verify the blueprint satisfies `.hubzero/experience/EXPERIENCE_STANDARD.md` in f
 - [ ] Brand assets generated and integrated (`.hubzero/experience/branding.md`).
 - [ ] HubZero attribution present in footer, About page, and README (`.hubzero/experience/branding.md` — HubZero Attribution).
 - [ ] Photography generated and integrated (`.hubzero/experience/photography.md`).
-- [ ] No temporary generation tooling remains in the repository.
+- [ ] **Asset Audit complete** (`.hubzero/experience/assets.md`) — every visual slot has an intentional asset, every asset is referenced by configuration, and the set is visually coherent.
+- [ ] Open Graph image is raster, correctly proportioned, and legible at preview size.
+- [ ] Mobile crops authored wherever a desktop composition does not survive a portrait viewport.
+- [ ] Lifecycle and empty states authored in the product's voice and expressed in the Design Language.
+- [ ] No temporary generation tooling, prompt files, or intermediate exports remain in the repository.
 
 This section verifies the experience standard, not just technical completeness. Do not duplicate its criteria here — consult the referenced documents directly.
 
 ---
 
-# 16. Final Review
+# 16. Retrospective
+
+The Project Knowledge Package is completed **before release approval**. See `.hubzero/release/PROJECT_KNOWLEDGE_PACKAGE.md`.
+
+- [ ] Project Knowledge Package authored against the required schema.
+- [ ] Architecture and design language recorded by canonical `id`.
+- [ ] Blueprint Core version recorded.
+- [ ] Limitations recorded specifically and completely.
+- [ ] Lessons Learned recorded as findings, including failures and near-misses.
+- [ ] Package committed to the blueprint repository.
+
+## Maintainer Exception
+
+This section is a release gate, not an advisory step. A blueprint is not approved for release with an unwritten retrospective.
+
+Where an external blocker genuinely prevents completion, a HubZero Blueprint Core maintainer — and only a maintainer — may approve an exception by recording, in the Release Information block below:
+
+- [ ] The specific external blocker preventing completion.
+- [ ] The maintainer approving the exception, by name.
+- [ ] The date by which the retrospective will be completed.
+
+An exception is a deferral with an owner and a date. It is not a waiver. "There was no time" is not an external blocker, and an exception recorded without all three fields is not an exception.
+
+---
+
+# 17. Final Review
 
 Review the blueprint holistically.
 
@@ -344,6 +478,7 @@ If any answer is "No", address it before releasing.
 - [ ] All checklist items complete.
 - [ ] Repository reviewed.
 - [ ] Final manual walkthrough completed.
+- [ ] Retrospective complete, or a maintainer exception recorded in full (see section 16).
 
 ## Release Decision
 
@@ -363,6 +498,12 @@ Release Date:
 Reviewed By:
 
 Approved By:
+
+Retrospective Exception (if any) — blocker:
+
+Retrospective Exception (if any) — approved by:
+
+Retrospective Exception (if any) — completion date:
 
 Git Commit:
 

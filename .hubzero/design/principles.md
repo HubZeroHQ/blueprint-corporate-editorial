@@ -172,9 +172,25 @@ Confidence creates trust.
 
 A design language is not a mood board. It is a system of decisions that removes ambiguity from implementation.
 
-Every document under `design/languages/` defines the same ten subsystems:
+The canonical list of design languages lives in `design/languages/REGISTRY.md`. This document defines what a design language must contain; the registry defines which ones exist. Never enumerate design languages anywhere else.
 
-* **Typography Language** — scale, rhythm, and voice.
+## The Design Language Contract
+
+Every document under `design/languages/` defines **eleven subsystems** wrapped by **six contract sections**.
+
+**Contract sections** — how the language is decided and bounded:
+
+* **Decision Hierarchy** — which subsystem wins when two of them conflict.
+* **Signature Traits** — what this language is, in its own terms.
+* **Anti-Patterns** — what it explicitly forbids.
+* **Responsive Behavior** — how the language expresses itself at handheld width.
+* **Token Contract** — which shared tokens the language must own, and to what character.
+* **Suitable Architectures** — where it belongs, and where it does not.
+
+**Subsystems** — the decisions themselves:
+
+* **Typography Language** — scale, rhythm, voice, and type strategy.
+* **Colour Language** — palette philosophy, semantic roles, and restraint.
 * **Motion Language** — how the interface moves and why.
 * **Photography Language** — subject, lighting, and treatment of imagery.
 * **Corner Language** — how corners are treated across components.
@@ -185,7 +201,79 @@ Every document under `design/languages/` defines the same ten subsystems:
 * **Component Language** — how recurring components express the language.
 * **Visual Rhythm** — how all of the above compose into a cohesive sequence across a page.
 
-When applying a design language, apply all ten. A blueprint that gets typography right but leaves motion, corners, or spacing undecided has not actually adopted a design language — it has adopted its typography and improvised the rest. Improvisation is where two blueprints built on different design languages accidentally converge on the same generic result.
+When applying a design language, apply all of it. A blueprint that gets typography right but leaves motion, corners, or spacing undecided has not adopted a design language — it has adopted its typography and improvised the rest. Improvisation is where two blueprints built on different design languages accidentally converge on the same generic result.
+
+*Composition* is deliberately not a separate subsystem. Within a page it is Visual Rhythm; across viewports it is Responsive Behavior. Naming it a third time would duplicate rather than add.
+
+---
+
+# A Design Language Is a Set of Prohibitions
+
+The most reliable predictor of whether a blueprint holds its design language is not how well its inspiration is described. It is how clearly it states what it refuses to do.
+
+"One radius, one border weight, no shadows, three semantic colours each reserved for one meaning" produces consistency across dozens of routes. An evocative paragraph about the mood a language should evoke does not, because two engineers reading it will make different decisions and both will believe they complied.
+
+This is why **Anti-Patterns is a required section, not an optional flourish**. A language that only describes what it likes has given an implementer no way to be wrong, which means it has given them no constraint at all.
+
+Prohibitions should be specific enough to be checked. "Avoid clutter" cannot be verified. "No more than one accent colour per view, and never on a surface that already carries emphasis" can.
+
+---
+
+# The Convergence Failure
+
+Design languages exist to make blueprints different from each other. Left unenforced, they reliably fail at exactly that.
+
+The mechanism is always the same: a language's most visible subsystem gets implemented, the rest are inherited from whatever the shared foundation happened to default to, and every blueprint converges on the same neutral result regardless of which language it claims. The claimed language survives in the documentation and not in the product.
+
+Three defences, each of which must actually be applied:
+
+**Own your tokens.** A design language that leaves shared radius, motion, or spacing tokens at their inherited defaults has not made those decisions — it has accepted someone else's. The Token Contract section exists to state which tokens the language must own. A blueprint whose token values are indistinguishable from the foundation it started with has not adopted its language.
+
+**Name a type strategy, not just a tone.** Typography is where convergence is most visible and most easily measured. A language's Typography section must describe the *strategy* — what kind of type system, chosen for what reason, doing what work — and its Anti-Patterns must name what that strategy excludes. A language whose typography is compatible with a neutral geometric grotesque has not made a typographic decision, because that is what every unfinished language reaches for.
+
+**Let identity emerge from relationships.** No single subsystem carries a language. Identity comes from how typography, spacing, rhythm, surfaces, borders, corners, motion, and imagery *agree with each other*. Two languages that differ only in palette are one language with two colour schemes. If a language could be converted into another by swapping its colours, it is not yet distinct.
+
+---
+
+# The Contrast Contract
+
+Every foreground value must be verified against **every surface it actually appears on**, not against white alone.
+
+Muted, warm, and desaturated palettes sit closest to the accessibility threshold precisely because they read as obviously legible in isolation. A secondary text colour that passes comfortably on white can fail on a cream, parchment, or tinted surface in the same system — and reviewing it visually will not reveal that, because it still looks fine.
+
+Contrast is a measured property, not a judgement. Where a value is tuned to satisfy it, record the before and after so a later edit does not silently undo the fix.
+
+This applies equally to focus indicators, borders that carry meaning, and any state expressed through colour alone.
+
+---
+
+# Dark Mode Is an Authored Palette
+
+Where a design language supports a dark appearance, that appearance is designed — not derived by inverting the light one.
+
+Mechanical inversion produces surfaces that are too heavy, accents that lose their meaning, borders that disappear, and shadows that stop doing anything at all. Ink, surfaces, accents, borders, elevation, and focus each need values chosen for the dark context and verified against the Contrast Contract independently.
+
+A design language that supports both appearances owns two complete palettes, and both express the same language.
+
+---
+
+# Surfaces Carry Context
+
+Where a design language uses multiple surface treatments — a dark section within a light page, an inverted band, a tinted panel — the surface should carry its own context, and descendants should adapt to it.
+
+Setting the context once on a container is more reliable than threading an appearance flag through every component inside it. Threaded flags are missed: a nested button, a focus ring, a border, or a link colour gets left behind, and the failure only appears on the one component nobody re-checked.
+
+Each design language decides which surfaces it has and what they mean. The principle is that a component should be able to render correctly by inheriting where it is, rather than by being told.
+
+---
+
+# Empty, Loading, and Error States Express the Language
+
+The states nobody designs are the states that reveal whether a design system is real.
+
+A loading state, an error boundary, and an empty result set are reached by real visitors, and they are where an unfinished design language becomes obvious — because they are usually built from whatever the framework provided rather than from the system. If these states cannot be expressed using the same primitives, tokens, and voice as the rest of the site, the system is incomplete.
+
+Their copy is authored content in the product's voice, not markup — see `.hubzero/content/principles.md` — Empty States Are Authored Content.
 
 ---
 

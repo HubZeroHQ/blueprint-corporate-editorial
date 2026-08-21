@@ -8,7 +8,25 @@ Users should feel they are interacting with sophisticated technology.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Information density and legibility** — the interface exists to convey system state accurately.
+2. **Systematic consistency** — a rule applied by the system beats a judgement applied by hand.
+3. **Typography** — a disciplined scale and weight system carries hierarchy.
+4. **Border and grid** — structure made visible through thin lines.
+5. **Colour** — functional, used to guide attention, never to express emotion.
+6. **Motion** — state legibility only.
+7. **Shadow and corner** — minimal, calculated.
+
+Technical resolves toward what the system can state accurately. Where a treatment would make the interface feel more welcoming at the cost of making its state less precise, precision wins.
+
+**Against Industrial:** Industrial communicates *operational capability* through material and machined consistency. Technical communicates *system state* through information structure and typographic discipline. Industrial evokes a factory floor; Technical evokes a control plane.
+
+---
+
+# Signature Traits
 
 - Precision over decoration
 - Function over ornament
@@ -18,7 +36,7 @@ Users should feel they are interacting with sophisticated technology.
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Colors should communicate clarity rather than emotion.
 
@@ -88,6 +106,37 @@ A Technical page should read like a well-structured application screen rather th
 
 ---
 
+# Responsive Behavior
+
+Technical carries the densest information of any language in the library, and mobile is where that density has to be re-decided rather than re-flowed.
+
+Code and data blocks must scroll within their own containment rather than forcing the document sideways, and must preserve their formatting — reflowing code destroys the alignment that made it readable. Verify at the document level that no descendant creates horizontal overflow.
+
+Tables preserve their semantic structure. A specification or comparison table collapsed into unlabeled stacked values has lost the relationships it existed to express; each value needs its label to travel with it.
+
+Reference navigation is the defining mobile problem for this language. Deep documentation hierarchies that live in a persistent sidebar on desktop need a mobile equivalent that keeps the visitor's position legible — an unlabeled hamburger over a twelve-level tree is a worse answer than a visible breadcrumb plus a searchable index.
+
+Monospace type needs its own mobile scale. Monospace runs optically larger and wider than the accompanying sans at the same nominal size, and a shared reduction leaves it either oversized or unreadable.
+
+Density stays high. Loosening a Technical layout for mobile comfort produces a generic product page; the language's audience expects and reads density.
+
+---
+
+# Token Contract
+
+Technical must own the following rather than inherit them.
+
+* **Radius** — small and tight, applied identically to every element. Inconsistency here reads as a bug rather than a style, so the value must be explicit.
+* **Type families** — a paired system with monospace reserved for genuinely technical values. This pairing is the language's most identifying decision and cannot be inherited.
+* **Border** — hairline weight, since borders define the grid rather than decorate elements.
+* **Motion duration and easing** — short, linear or near-linear. An eased curve implies expression this language reserves for state change.
+* **Colour roles** — status and semantic colours defined as roles with fixed meanings, plus a verified foreground scale for dense text.
+* **Spacing scale** — tighter than a neutral default, with consistent steps.
+
+Dense interfaces make subtle foreground values common, and those are the values most likely to fail measurement. Verify every text tone against every surface per the Contrast Contract, and record the ratios so a later palette adjustment does not silently undo the fix.
+
+---
+
 # Suitable Architectures
 
 - SaaS
@@ -98,6 +147,6 @@ A Technical page should read like a well-structured application screen rather th
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid excessive visual effects, decorative motion, playful interactions, or ornamental design that distracts from information.

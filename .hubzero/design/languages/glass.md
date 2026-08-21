@@ -8,7 +8,22 @@ Depth should always serve usability.
 
 ---
 
-# Core Principles
+# Decision Hierarchy
+
+When two subsystems conflict, resolve in this order:
+
+1. **Surface and depth** — layering is the language; if a decision flattens the composition, it is wrong.
+2. **Motion** — depth is proven by how surfaces respond when they move.
+3. **Spacing** — layers need room or they blend into each other.
+4. **Colour** — must stay legible through translucency.
+5. **Corner and border** — consistent across every layer.
+6. **Typography** — clear and unfussy; type is read *through* a surface, not competing with it.
+
+Legibility overrides the effect. Where translucency and contrast conflict, Glass reduces the blur or increases the surface opacity — it never reduces the contrast. A beautiful panel that cannot be read has failed at the one thing the language exists to do.
+
+---
+
+# Signature Traits
 
 - Layered interfaces
 - Visual depth
@@ -26,7 +41,7 @@ Hierarchy should be built through weight and size rather than color, since color
 
 ---
 
-# Color Philosophy
+# Colour Language
 
 Transparency should complement color rather than replace it.
 
@@ -106,6 +121,34 @@ As a user moves down a page, the layering logic should stay predictable: the sam
 
 ---
 
+# Responsive Behavior
+
+Glass is the language most at risk of degrading on mobile, and the degradation is both visual and functional.
+
+Layered compositions that read as depth on a wide viewport read as clutter on a phone, because the layers overlap in a space too small to separate them. At handheld width, reduce the number of simultaneous layers rather than shrinking them — one translucent surface over content, not three over each other.
+
+Blur is expensive. On lower-powered devices a heavily blurred surface that animates will drop frames, which destroys the physical illusion more thoroughly than removing the blur would. Reduce blur radius and layer count at mobile width as a deliberate composition decision, not as a performance patch.
+
+Translucent surfaces over scrolling content need a contrast floor that holds regardless of what scrolls beneath them. Verify legibility against the darkest and lightest content the surface can ever overlay — not against a representative screenshot.
+
+Where reduced motion is preferred, layers settle into their final positions without the transitional blur and opacity shifts. The composition must still read as layered when nothing moves.
+
+---
+
+# Token Contract
+
+Glass must own the following rather than inherit them.
+
+* **Radius** — generous and identical across every layered surface. A shared default radius is usually too tight to read as a soft physical material.
+* **Surface tokens** — background translucency, blur radius, and layer tint are the language's defining values and have no shared default at all. Define them explicitly, per appearance.
+* **Border** — a light, low-opacity edge that catches the surface boundary. Glass panels need their edges defined; an inherited solid hairline reads as a flat card.
+* **Shadow** — soft and diffuse, expressing separation between layers rather than elevation above a page.
+* **Motion duration and easing** — slower than a neutral default, with easing that settles rather than snaps.
+
+Because Glass depends on stacked surfaces, own the layering scale too, and verify which ancestor establishes the stacking context — blur and translucency both create new ones. See `.hubzero/rendering.md` — Deriving Interface State.
+
+---
+
 # Suitable Architectures
 
 - SaaS
@@ -116,6 +159,6 @@ As a user moves down a page, the layering logic should stay predictable: the sam
 
 ---
 
-# Avoid
+# Anti-Patterns
 
 Avoid excessive blur, unnecessary transparency, poor contrast, or decorative layering that reduces usability.
