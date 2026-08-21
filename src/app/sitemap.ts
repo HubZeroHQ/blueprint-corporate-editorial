@@ -3,11 +3,22 @@ import { industries, posts, services, staticRoutes, work } from "@/config/conten
 import { site } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const fallbackDate = site.contentUpdated;
   const dynamic = [
-    ...services.map(x => `/services/${x.slug}`),
-    ...industries.map(x => `/industries/${x.slug}`),
-    ...work.map(x => `/work/${x.slug}`),
-    ...posts.map(x => `/blog/${x.slug}`),
+    ...services.map(x => ({ path: `/services/${x.slug}`, lastModified: fallbackDate })),
+    ...industries.map(x => ({ path: `/industries/${x.slug}`, lastModified: fallbackDate })),
+    ...work.map(x => ({ path: `/work/${x.slug}`, lastModified: fallbackDate })),
+    ...posts.map(x => ({ path: `/blog/${x.slug}`, lastModified: x.authoredDate })),
   ];
-  return [...staticRoutes, ...dynamic].map(path => ({ url: new URL(path, site.url).toString(), changeFrequency: path === "/" ? "weekly" : "monthly", priority: path === "/" ? 1 : .7 }));
+  const entries = [
+    ...staticRoutes.map(path => ({ path, lastModified: fallbackDate })),
+    ...dynamic,
+  ];
+
+  return entries.map(({ path, lastModified }) => ({
+    url: new URL(path, site.url).toString(),
+    lastModified: new Date(lastModified),
+    changeFrequency: path === "/" ? "weekly" : "monthly",
+    priority: path === "/" ? 1 : .7,
+  }));
 }

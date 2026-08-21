@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image"; import Link from "next/link"; import { usePathname } from "next/navigation"; import { useEffect, useRef, useState } from "react"; import { navigation } from "@/config/navigation";
+import Image from "next/image"; import Link from "next/link"; import { usePathname } from "next/navigation"; import { useEffect, useRef, useState } from "react"; import { navigation } from "@/config/navigation"; import { useDismissible } from "@/hooks/useDismissible"; import { useScrolled } from "@/hooks/useScrolled";
 
 const darkHeroRoutes = new Set(["/about", "/industries", "/careers"]);
 
 export function Header(){
-  const pathname=usePathname(); const [scrolled,setScrolled]=useState(false); const [drawerRoute,setDrawerRoute]=useState<string|null>(null); const triggerRef=useRef<HTMLButtonElement>(null); const closeRef=useRef<HTMLButtonElement>(null); const drawerRef=useRef<HTMLDivElement>(null); const drawerOpen=drawerRoute===pathname;
+  const pathname=usePathname(); const scrolled=useScrolled(40); const [drawerRoute,setDrawerRoute]=useState<string|null>(null); const triggerRef=useRef<HTMLButtonElement>(null); const closeRef=useRef<HTMLButtonElement>(null); const drawerRef=useRef<HTMLDivElement>(null); const drawerOpen=drawerRoute===pathname;
   const heroAppearance=darkHeroRoutes.has(pathname)?"dark":"light"; const navAppearance=scrolled?"frosted":heroAppearance;
-  useEffect(()=>{const update=()=>setScrolled(window.scrollY>40);update();window.addEventListener("scroll",update,{passive:true});return()=>window.removeEventListener("scroll",update)},[]);
-  useEffect(()=>{if(!drawerOpen)return;const previous=document.body.style.overflow;const trigger=triggerRef.current;document.body.style.overflow="hidden";closeRef.current?.focus();const key=(event:KeyboardEvent)=>{if(event.key==="Escape")setDrawerRoute(null);if(event.key==="Tab"){const items=drawerRef.current?.querySelectorAll<HTMLElement>('a[href],button:not([disabled])');if(!items?.length)return;const first=items[0],last=items[items.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}};document.addEventListener("keydown",key);return()=>{document.body.style.overflow=previous;document.removeEventListener("keydown",key);trigger?.focus()}},[drawerOpen]);
+  useDismissible({open:drawerOpen,onDismiss:()=>setDrawerRoute(null),restoreFocusTo:triggerRef});
+  useEffect(()=>{if(!drawerOpen)return;closeRef.current?.focus();const key=(event:KeyboardEvent)=>{if(event.key==="Tab"){const items=drawerRef.current?.querySelectorAll<HTMLElement>('a[href],button:not([disabled])');if(!items?.length)return;const first=items[0],last=items[items.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}};document.addEventListener("keydown",key);return()=>document.removeEventListener("keydown",key)},[drawerOpen]);
   useEffect(()=>{const resize=()=>{if(window.innerWidth>=768)setDrawerRoute(null)};window.addEventListener("resize",resize);return()=>window.removeEventListener("resize",resize)},[]);
   const dark=navAppearance==="dark";
   return <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">

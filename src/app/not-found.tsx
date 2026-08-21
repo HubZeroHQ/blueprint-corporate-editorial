@@ -3,7 +3,7 @@ import { Typography, Button } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <Page>
+    <Page id="main-content">
       <Section className="py-32 md:py-48 flex items-center justify-center min-h-[70vh]">
         <Container>
           <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-8">

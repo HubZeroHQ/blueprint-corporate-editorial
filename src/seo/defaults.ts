@@ -9,7 +9,7 @@ export const seoDefaults = {
 
   url: site.url,
 
-  locale: "en_US",
+  locale: site.ogLocale,
 
   type: "website",
 

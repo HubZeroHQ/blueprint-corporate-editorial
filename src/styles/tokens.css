@@ -1,17 +1,14 @@
 :root {
-  /* Radius */
-  --radius-sm: 0;
-  --radius-md: 0.125rem;
-  --radius-lg: 0.25rem;
-
   /* Layout */
   --container-width: 80rem;
 
-  /* Motion */
-  --transition-fast: 150ms;
-  --transition-normal: 250ms;
-  --color-paper: #f7f6f2;
-  --color-ink: #1c1917;
-  --color-rule: #d6d3d1;
-  --section-space: clamp(4.5rem, 8vw, 8rem);
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-overlay: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-toast: 1600;
+  --z-tooltip: 1700;
 }

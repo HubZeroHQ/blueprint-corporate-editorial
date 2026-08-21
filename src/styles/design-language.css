@@ -1,0 +1,16 @@
+:root {
+  /* Editorial radius */
+  --radius-sm: 0;
+  --radius-md: 0.125rem;
+  --radius-lg: 0.25rem;
+
+  /* Editorial motion */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+
+  /* Meridian palette and spacing */
+  --color-paper: #f7f6f2;
+  --color-ink: #1c1917;
+  --color-rule: #d6d3d1;
+  --section-space: clamp(4.5rem, 8vw, 8rem);
+}

@@ -112,6 +112,8 @@ If shared engineering functionality is required by the vast majority of HubZero 
 
 If functionality is specific to this blueprint, keep it within the blueprint rather than modifying the shared engineering foundation.
 
+The shared dependency baseline is part of that foundation. Blueprint Base owns which shared dependencies exist, the versions they resolve to, and their security posture. A blueprint adds what its own product requires, but it does not fork, shadow, or unilaterally re-pin a shared dependency to resolve a local problem — that decision is inherited by every blueprint and belongs to Base. Where a shared dependency is genuinely at fault, or a security advisory affects one, report it upward rather than patching around it locally.
+
 Blueprint Base also supplies reusable AI skills — see Reusable AI Skills below.
 
 Blueprint Base standardizes engineering.
